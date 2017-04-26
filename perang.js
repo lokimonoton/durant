@@ -139,7 +139,7 @@ driver.findElement(By.css('#create-project-button-import')).click();
 
 driver.sleep(5000000);
 }
-masukKeduaCodenvy("sampankecil1","plokotoklucu1")
+// masukKeduaCodenvy("sampankecil1","plokotoklucu1")
 function masukKetigaCodenvy(username,password){
   var webdriver = require('selenium-webdriver'),
       By = webdriver.By,
@@ -222,9 +222,24 @@ driver.sleep(5000)
 driver.findElement(By.css('input[placeholder="your-project-name"]')).sendKeys(username);
 driver.findElement(By.css('button[type="submit"]')).click();
 driver.sleep(100000)
-driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("ls");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("git clone https://github.com/lokimonoton/durant.git");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(1000000)
+driver.sleep(10000)
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("cd durant");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(5000)
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get update");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(20000)
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get install xvfb firefox -y");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(50000)
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get install xvfb firefox -y");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(50000)
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm i selenium-webdriver@3.0.0-beta-2 --save");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(50000)
 }
 
 function masukC9(projectName){
