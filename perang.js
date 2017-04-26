@@ -16,8 +16,8 @@ driver.sleep(5000)
 driver.findElement(By.css('input.required.user-name')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(500000000)
 }
-var postmark=require('./nekomaru/postmark');
-var koneksi=require("./nekomaru/koneksi")
+//var postmark=require('./nekomaru/postmark');
+//var koneksi=require("./nekomaru/koneksi")
 // postmark.mendapatkanServer()
 // postmark.deleteServer("2962606")
 // koneksi.cari("codenvy",{},function(sampai){
@@ -263,6 +263,20 @@ driver.get("https://ide.c9.io/kolotibablo/"+projectName)
   driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
   driver.sleep(1000000)
 }
+deleteC9()
 function deleteC9(){
+    var webdriver = require('selenium-webdriver'),
+        By = webdriver.By,
+        until = webdriver.until;
 
+    var driver = new webdriver.Builder()
+        .forBrowser('firefox')
+        // .usingServer('http://localhost:4444/wd/hub')
+        .build();
+    driver.manage().window().setSize(1000, 1000);
+    driver.get('https://www.c9.io/login');
+    driver.findElement(By.id('id-username')).sendKeys("slafe1@yandex.com");
+    driver.findElement(By.id('id-password')).sendKeys("plokotoklucu");
+    driver.findElement(By.id('id-password')).sendKeys(webdriver.Key.ENTER);
+    driver.sleep(10000)
 }
