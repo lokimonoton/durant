@@ -15,23 +15,24 @@ driver.findElement(By.css('input.required.email')).sendKeys(email);
 driver.findElement(By.css('input.required.user-name')).sendKeys(username);
 driver.sleep(5000)
 driver.findElement(By.css('input.required.user-name')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(500000000)
+driver.sleep(5000)
+driver.quit()
 }
-//var postmark=require('./nekomaru/postmark');
-//var koneksi=require("./nekomaru/koneksi")
+var postmark=require('./nekomaru/postmark');
+var koneksi=require("./nekomaru/koneksi")
 // postmark.mendapatkanServer()
-// postmark.deleteServer("2962606")
+// postmark.deleteServer("2980389")
 // koneksi.cari("codenvy",{},function(sampai){
 // var cane=sampai.length+1;
 // if(sampai.length<1){
-//   postmark.buatServer("mboh","http://sourcelairmaker-kolotibablo.c9users.io/facebook",function(data){
-//     buatCodenvy(data.InboundAddress,"koleksiii"+cane)
+//   postmark.buatServer("mboh","http://panda-kolotibablo.c9users.io/facebook",function(data){
+//     buatCodenvy(data.InboundAddress,"kokijun"+cane)
 //   });
 //
 // }
 // })
-// masukPertamaCodenvy("spiritbro57@yandex.com","plokotoklucu1")
-function masukPertamaCodenvy(username,password){
+masukPertamaCodenvy()
+function masukPertamaCodenvy(url){
   var webdriver = require('selenium-webdriver'),
       By = webdriver.By,
       until = webdriver.until;
@@ -41,10 +42,11 @@ function masukPertamaCodenvy(username,password){
       // .usingServer('http://localhost:4444/wd/hub')
       .build();
   driver.manage().window().setSize(1000, 1000);
-  driver.get('https://www.codenvy.io/');
-driver.findElement(By.css('#username')).sendKeys(username);
-driver.findElement(By.css('input[type="password"]')).sendKeys(password);
-driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
+  driver.get('https://codenvy.io/site/auth/create?bearertoken=qPLPWKeTHWz1D5bzzXir54Hqn0vmKGPHbfHPvzXqe8CyraXj881ij5PHjub5LzGeL10La5aqfK4iyOnr1abW8XmTTDCaGCP5DnWX4vanSCeC9qjaeCCHD4nLuTGGTX0frqGCTee0HOWnS8qjyyC4LbSDnPuumy100TWe9TWrWOHKu0eqDivrCiST9OyHTv59qumjHLKrfnfr09rerXDijrzjCLKbuTafbnn1PfzSzHXHDHb84ubmCXqqKTCWOiH&redirect_url=https://codenvy.io/');
+// driver.findElement(By.css('#username')).sendKeys(username);
+// driver.findElement(By.css('input[type="password"]')).sendKeys(password);
+// driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(5000)
   driver.get('https://www.codenvy.io/dashboard');
   driver.sleep(5000);
   driver.get('https://codenvy.io/dashboard/#/account');
@@ -268,7 +270,7 @@ driver.get("https://ide.c9.io/kolotibablo/"+projectName)
   driver.sleep(1000000)
 }
 
-buatC9(argv.ships)
+
 function deleteC9(workspace){
     var webdriver = require('selenium-webdriver'),
         By = webdriver.By,
