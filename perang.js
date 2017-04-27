@@ -1,4 +1,11 @@
 var argv = require('yargs').argv;
+if(argv.buatcodenvy){
+  console.log(argv.ship)
+}
+
+if(argv.plikit){
+  console.log(argv.plikit)
+}
 function buatCodenvy(email,username){
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -31,7 +38,7 @@ var koneksi=require("./nekomaru/koneksi")
 //
 // }
 // })
-masukPertamaCodenvy()
+
 function masukPertamaCodenvy(url){
   var webdriver = require('selenium-webdriver'),
       By = webdriver.By,
@@ -42,10 +49,7 @@ function masukPertamaCodenvy(url){
       // .usingServer('http://localhost:4444/wd/hub')
       .build();
   driver.manage().window().setSize(1000, 1000);
-  driver.get('https://codenvy.io/site/auth/create?bearertoken=qPLPWKeTHWz1D5bzzXir54Hqn0vmKGPHbfHPvzXqe8CyraXj881ij5PHjub5LzGeL10La5aqfK4iyOnr1abW8XmTTDCaGCP5DnWX4vanSCeC9qjaeCCHD4nLuTGGTX0frqGCTee0HOWnS8qjyyC4LbSDnPuumy100TWe9TWrWOHKu0eqDivrCiST9OyHTv59qumjHLKrfnfr09rerXDijrzjCLKbuTafbnn1PfzSzHXHDHb84ubmCXqqKTCWOiH&redirect_url=https://codenvy.io/');
-// driver.findElement(By.css('#username')).sendKeys(username);
-// driver.findElement(By.css('input[type="password"]')).sendKeys(password);
-// driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
+  driver.get(url);
 driver.sleep(5000)
   driver.get('https://www.codenvy.io/dashboard');
   driver.sleep(5000);
@@ -84,8 +88,8 @@ driver.findElement(By.css('#create-project-button-import')).click();
 
 driver.sleep(5000000);
 }
-// masukKeduaCodenvy("sampankecil1","plokotoklucu1")
-function masukKeduaCodenvy(username,password){
+
+function masukKeduaCodenvy(username){
   var webdriver = require('selenium-webdriver'),
       By = webdriver.By,
       until = webdriver.until;
@@ -97,7 +101,7 @@ function masukKeduaCodenvy(username,password){
   driver.manage().window().setSize(1000, 1000);
   driver.get('https://www.codenvy.io/');
 driver.findElement(By.css('#username')).sendKeys(username);
-driver.findElement(By.css('input[type="password"]')).sendKeys(password);
+driver.findElement(By.css('input[type="password"]')).sendKeys("plokotoklucu1");
 driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
   driver.get('https://www.codenvy.io/dashboard');
   driver.sleep(5000);
@@ -143,7 +147,7 @@ driver.findElement(By.css('#create-project-button-import')).click();
 driver.sleep(5000000);
 }
 // masukKeduaCodenvy("sampankecil1","plokotoklucu1")
-function masukKetigaCodenvy(username,password){
+function masukKetigaCodenvy(username){
   var webdriver = require('selenium-webdriver'),
       By = webdriver.By,
       until = webdriver.until;
@@ -155,7 +159,7 @@ function masukKetigaCodenvy(username,password){
   driver.manage().window().setSize(1000, 1000);
   driver.get('https://www.codenvy.io/');
 driver.findElement(By.css('#username')).sendKeys(username);
-driver.findElement(By.css('input[type="password"]')).sendKeys(password);
+driver.findElement(By.css('input[type="password"]')).sendKeys("plokotoklucu1");
 driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
   driver.get('https://www.codenvy.io/dashboard');
   driver.sleep(5000);
@@ -245,7 +249,7 @@ driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKey
 driver.sleep(10000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("export PATH=$PATH:$(pwd)");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(50000)
+driver.sleep(2000)
 }
 
 function masukC9(projectName){

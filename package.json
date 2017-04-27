@@ -9,6 +9,7 @@
     "cheerio": "^0.22.0",
     "express": "^4.15.2",
     "fb": "^1.1.1",
+    "mongojs": "^2.4.0",
     "nedb": "^1.8.0",
     "node-horseman": "^3.2.0",
     "phantomjs-prebuilt": "^2.1.14",
