@@ -1,3 +1,4 @@
+var argv = require('yargs').argv;
 function buatCodenvy(email,username){
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
@@ -234,10 +235,13 @@ driver.sleep(20000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get install xvfb firefox -y");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(50000)
-driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get install xvfb firefox -y");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm i selenium-webdriver@3.0.0-beta-2 --save");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(50000)
-driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm i selenium-webdriver@3.0.0-beta-2 --save");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm install -g nodemon");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(10000)
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("export PATH=$PATH:$(pwd)");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(50000)
 }
@@ -263,14 +267,15 @@ driver.get("https://ide.c9.io/kolotibablo/"+projectName)
   driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
   driver.sleep(1000000)
 }
-deleteC9()
-function deleteC9(){
+
+buatC9(argv.ships)
+function deleteC9(workspace){
     var webdriver = require('selenium-webdriver'),
         By = webdriver.By,
         until = webdriver.until;
 
     var driver = new webdriver.Builder()
-        .forBrowser('firefox')
+        .forBrowser('chrome')
         // .usingServer('http://localhost:4444/wd/hub')
         .build();
     driver.manage().window().setSize(1000, 1000);
@@ -279,4 +284,13 @@ function deleteC9(){
     driver.findElement(By.id('id-password')).sendKeys("plokotoklucu");
     driver.findElement(By.id('id-password')).sendKeys(webdriver.Key.ENTER);
     driver.sleep(10000)
+    driver.get('https://c9.io/kolotibablo/'+workspace+'/settings')
+    driver.findElement(By.xpath('//*[@id="button-delete-workspace"]')).click();
+    driver.sleep(2000)
+        driver.findElement(By.xpath('//div[@class="modal"]/div/form/section/div/input')).sendKeys(workspace);
+        driver.sleep(2000)
+driver.findElement(By.xpath('//div[@class="modal"]/div/form/footer/div/button[1]')).click();
+driver.sleep(5000000)
+
+
 }
