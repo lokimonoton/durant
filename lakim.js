@@ -3,13 +3,18 @@ var app = express()
 //untuk menjadikan json
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
-var argv = require('yargs').argv;
+var koneksi=require('./koneksi')
 app.get('/goal', function (req, res) {
   res.sendFile(__dirname+'/panda.html')
 })
 
 app.get('/', function (req, res) {
-  res.send(argv.apa)
+  res.send(__dirname+'/lakim.html')
+})
+app.get('/codenvy',function(req,res){
+  koneksi.cari('codenvy',{},function(data){
+    res.send(JSON.stringify(data))
+  })
 })
 //webhook mendapatkan notifikasi facebook
 app.post('/facebook', jsonParser, function (req, res) {

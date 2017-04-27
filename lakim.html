@@ -1,3 +1,26 @@
-<ul>
-    <li>saya mau bertanya tentang bagaimana cara menghitung jumlah pelanggan puas dengan pertanyaan saya apakah saya boleh memakai library sentiment analysis?</li>
-</ul>
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
+<link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://unpkg.com/vue-material">
+<script src="https://unpkg.com/vue"></script>
+<script src="https://unpkg.com/vue-material"></script>
+<div id="app">
+  <md-avatar class="md-avatar-icon">
+  <md-icon>home</md-icon>
+</md-avatar>
+<md-layout md-gutter>
+  <md-layout>  {{ message }}</md-layout>
+</md-layout>
+
+</div>
+<script>
+Vue.use(VueMaterial)
+var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!'
+  },
+  method:{
+
+  }
+})
+</script>
