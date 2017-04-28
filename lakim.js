@@ -9,7 +9,7 @@ app.get('/goal', function (req, res) {
 })
 
 app.get('/', function (req, res) {
-  res.send(__dirname+'/lakim.html')
+  res.sendFile(__dirname+'/lakim.html')
 })
 app.get('/codenvy',function(req,res){
   koneksi.cari('codenvy',{},function(data){
