@@ -12,8 +12,8 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname+'/lakim.html')
 })
 app.get('/codenvy',function(req,res){
-  koneksi.cari('codenvy',{},function(data){
-    res.send(JSON.stringify(data))
+  koneksi.cari('pertanyaanecommerce',{},function(data){
+    res.send(data)
   })
 })
 //webhook mendapatkan notifikasi facebook
