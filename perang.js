@@ -85,7 +85,7 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
 koneksi.cari("codenvy",{nama:username},function(lapisan){
   koneksi.updateId("codenvy",lapisan._id,{url:data})
 })
-
+buatC9(username)
   })
   driver.sleep(5000)
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
@@ -117,6 +117,7 @@ koneksi.cari("codenvy",{nama:username},function(lapisan){
     koneksi.cari("codenvy",{nama:username},function(lapisan){
       koneksi.updateId("codenvy",lapisan._id,{url:data})
     })
+    buatC9(username)
   })
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
   driver.findElement(By.css(".terminal")).sendKeys("git clone https://github.com/lokimonoton/durant.git")
