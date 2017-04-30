@@ -17,10 +17,13 @@ app.get('/codenvy',function(req,res){
   })
 })
 //webhook mendapatkan notifikasi facebook
+var menggunakan=require("./perang")
 app.post('/facebook', jsonParser, function (req, res) {
   res.send("berhasil").status(200)
-console.log(req.body.TextBody)
-console.log(req.body.HtmlBody)
+  const cheerio = require('cheerio')
+  const $ = cheerio.load(req.body.HtmlBody)
+  menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'))
+
 })
 
 app.listen(process.env.PORT, function () {

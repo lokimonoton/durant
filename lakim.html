@@ -1,26 +1,153 @@
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic">
 <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-<link rel="stylesheet" href="https://unpkg.com/vue-material">
+<link rel="stylesheet" href="https://unpkg.com/vue-material/dist/vue-material.css">
 <script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
 <script src="https://unpkg.com/vue-material"></script>
-<div id="app">
-  <md-avatar class="md-avatar-icon">
-  <md-icon>home</md-icon>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style type="text/css">
+  .complete-example {
+  height: 700px;
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  }
+  .completos{
+  height: 540px;
+    display: flex;
+  flex-flow: column;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  }
+
+</style>
+<div id="app" class="app-viewport">
+ <md-toolbar>
+  <md-button class="md-icon-button"  @click.native="toggleLeftSidenav">
+    <md-icon>menu</md-icon>
+  </md-button>
+
+  <h2 class="md-title" style="flex: 1">NATURAL LANGUAGE PROCESSING</h2>
+
+  <md-button>Add</md-button>
+  <md-button class="md-raised">Remove</md-button>
+</md-toolbar>
+<md-sidenav md-swipeable="true" class="md-left" ref="leftSidenav" >
+    <md-toolbar class="md-large">
+      <md-avatar class="md-avatar-icon md-large md-accent">
+  <md-icon>favorite</md-icon>
 </md-avatar>
-<md-layout md-gutter>
-  <md-layout>  {{ message }}</md-layout>
+
+    </md-toolbar>
+
+    <md-list>
+
+    <md-list-item class="has-ripple">
+           <md-icon>move_to_inbox</md-icon> <span>Inbox</span>
+    <md-ink-ripple/>
+    </md-list-item>
+
+    <md-list-item class="has-ripple">
+
+      <md-icon>send</md-icon> <span>Sent Mail</span>
+    <md-ink-ripple/>
+    </md-list-item>
+
+    <md-list-item class="has-ripple">
+
+      <md-icon>delete</md-icon> <span>Trash</span>
+    <md-ink-ripple/>
+    </md-list-item>
+
+    <md-list-item class="has-ripple">
+
+      <md-icon>error</md-icon> <span>Spam</span>
+<md-ink-ripple/>
+      <md-divider class="md-inset"></md-divider>
+    </md-list-item>
+
+  </md-list>
+  </md-sidenav>
+
+  <md-layout md-gutter>
+  <md-layout  md-flex-offset="-50">
+    <span>LIST PERTANYAAN</span>
+    <div class="completos">
+  <md-table md-sort="number">
+  <md-table-header>
+    <md-table-row>
+      <md-table-head md-sort-by="number">no.</md-table-head>
+      <md-table-head v-for="(value, key, index) in codenvy[0]" :md-sort-by="key">{{key}}</md-table-head>
+      </md-table-row>
+  </md-table-header>
+
+  <md-table-body>
+    <md-table-row v-for="(row, index) in codenvy" :key="index">
+      <md-table-cell >{{index+1}}</md-table-cell>
+      <md-table-cell v-for="(value, index) in row">{{value}}</md-table-cell>
+
+    </md-table-row>
+  </md-table-body>
+</md-table>
+</div>
+  </md-layout>
+
+  <md-layout md-column>
+    <span>PENERAPAN METODE NATURAL LANGUAGE PROCESSING</span>
+    <md-layout md-flex="20">
+  <md-input-container>
+    <label>Pertanyaan</label>
+    <md-textarea></md-textarea>
+  </md-input-container>
+  </md-layout>
+  JAWABAN:
+  </md-layout>
 </md-layout>
 
 </div>
 <script>
 Vue.use(VueMaterial)
+Vue.material.registerTheme({
+  default: {
+    primary: {
+      color: 'light-green',
+      hue: 700
+    },
+    accent: 'red'
+  },
+  teal: {
+    primary: 'blue',
+    accent: 'pink'
+  },
+  purple: {
+    primary: 'purple',
+    accent: 'orange'
+  }
+})
 var app = new Vue({
   el: '#app',
   data: {
-    message: 'Hello Vue!'
+    codenvy: [],
   },
-  method:{
+  mounted:function(){
+this.$http.get('/codenvy').then(data=>{
+  this.codenvy=JSON.parse(data.bodyText)
 
   }
+, err=>{
+  console.log(err)
 })
+  },
+  methods:{
+toggleLeftSidenav: function(){
+      this.$refs.leftSidenav.toggle();
+    }
+  },
+
+})
+
 </script>
