@@ -5,22 +5,23 @@ exec('java -jar selenium-server-standalone-2.45.0.jar', (err, stdout, stderr) =>
     console.error(err);
     return;
   }
-  exec('./infinityloop '+argv.username, (err, stdout, stderr) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    exec('./infinityloop2 '+argv.username, (err, stdout, stderr) => {
-      if (err) {
-        console.error(err);
-        return;
-      }
-      console.log(stdout);
-    });
-  });
+
   console.log(stdout);
 });
-
+exec('./infinityloop '+argv.username, (err, stdout, stderr) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+console.log(stdout);
+});
+exec('./infinityloop2 '+argv.username, (err, stdout, stderr) => {
+  if (err) {
+    console.error(err);
+    return;
+  }
+  console.log(stdout);
+});
 exec('nodemon lakim.js ', (err, stdout, stderr) => {
   if (err) {
     console.error(err);
