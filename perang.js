@@ -106,7 +106,7 @@ koneksi.cari("codenvy",{nama:username},function(lapisan){
   driver.sleep(5000)
   driver.quit()
   postmark.mendapatkanServer(data=>{
-    postmark.deleteServer(data.ID)
+    postmark.deleteServer(data[0].ID)
   })
 }).catch(function(){
   driver.findElement(By.css("#gwt-debug-command_toolbar-button_Run")).click();
@@ -135,7 +135,7 @@ koneksi.cari("codenvy",{nama:username},function(lapisan){
   driver.sleep(5000)
   driver.quit()
   postmark.mendapatkanServer(data=>{
-    postmark.deleteServer(data.ID)
+    postmark.deleteServer(data[0].ID)
   })
 })
 }
