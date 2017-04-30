@@ -294,7 +294,7 @@ driver.sleep(10000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("export PATH=$PATH:$(pwd)");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(2000)
-driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("node xserver.js --username "+username);
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("node xserver.js --username "+username+" &");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(100000)
 driver.quit()
