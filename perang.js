@@ -7,13 +7,16 @@ if(argv.masukc9){
 if(argv.masukkeduacodenvy){
   masukKeduaCodenvy(argv.masukc9)
 }
+if(argv.delete){
+  deleteC9(argv.delete)
+}
 function buatCodenvy(email,username){
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
     until = webdriver.until;
 
 var driver = new webdriver.Builder()
-    .forBrowser('firefox')
+    .forBrowser('chrome')
     // .usingServer('http://localhost:4444/wd/hub')
     .build();
 driver.manage().window().setSize(1000, 1000);
@@ -35,7 +38,7 @@ function masukPertamaCodenvy(url){
       until = webdriver.until;
 
   var driver = new webdriver.Builder()
-      .forBrowser('firefox')
+      .forBrowser('chrome')
       // .usingServer('http://localhost:4444/wd/hub')
       .build();
   driver.manage().window().setSize(1000, 1000);
@@ -147,7 +150,7 @@ function masukKeduaCodenvy(username){
       until = webdriver.until;
 
   var driver = new webdriver.Builder()
-      .forBrowser('firefox')
+      .forBrowser('chrome')
       // .usingServer('http://localhost:4444/wd/hub')
       .build();
   driver.manage().window().setSize(1000, 1000);
@@ -259,7 +262,7 @@ var webdriver = require('selenium-webdriver'),
     until = webdriver.until;
 
 var driver = new webdriver.Builder()
-    .forBrowser('firefox')
+    .forBrowser('chrome')
     // .usingServer('http://localhost:4444/wd/hub')
     .build();
 driver.manage().window().setSize(1000, 1000);
@@ -282,7 +285,7 @@ driver.sleep(5000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get update");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(20000)
-driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get install xvfb firefox -y");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get install xvfb chrome -y");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(50000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm i selenium-webdriver@3.0.0-beta-2 --save");
@@ -306,7 +309,7 @@ function masukC9(projectName){
       until = webdriver.until;
 
   var driver = new webdriver.Builder()
-      .forBrowser('firefox')
+      .forBrowser('chrome')
       // .usingServer('http://localhost:4444/wd/hub')
       .build();
   driver.manage().window().setSize(1000, 1000);
@@ -330,7 +333,7 @@ function deleteC9(workspace){
         until = webdriver.until;
 
     var driver = new webdriver.Builder()
-        .forBrowser('firefox')
+        .forBrowser('chrome')
         // .usingServer('http://localhost:4444/wd/hub')
         .build();
     driver.manage().window().setSize(1000, 1000);
