@@ -9,4 +9,9 @@
 // postmark.mendapatkanServer()
 // postmark.deleteServer('2980393')
 var perang=require("./perang")
-perang.masukC9("panda")
+// perang.masukC9("panda")
+var koneksi=require("./koneksi")
+// koneksi.cari("percobaan",{nama:"kucing"},function(data){
+//   console.log(data)
+// })
+koneksi.update("percobaan",{"nama":"kucing"},{"kucing":"besar"})

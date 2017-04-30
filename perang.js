@@ -5,7 +5,7 @@ if(argv.masukc9){
   masukC9(argv.masukc9)
 }
 if(argv.masukkeduacodenvy){
-  masukC9(argv.masukc9)
+  masukKeduaCodenvy(argv.masukc9)
 }
 function buatCodenvy(email,username){
 var webdriver = require('selenium-webdriver'),
@@ -27,17 +27,7 @@ driver.sleep(5000)
 driver.quit()
 }
 
-// postmark.mendapatkanServer()
-// postmark.deleteServer("2980389")
-// koneksi.cari("codenvy",{},function(sampai){
-// var cane=sampai.length+1;
-// if(sampai.length<1){
-//   postmark.buatServer("mboh","http://panda-kolotibablo.c9users.io/facebook",function(data){
-//     buatCodenvy(data.InboundAddress,"kokijun"+cane)
-//   });
-//
-// }
-// })
+
 
 function masukPertamaCodenvy(url){
   var webdriver = require('selenium-webdriver'),
@@ -86,14 +76,16 @@ driver.sleep(2000)
 driver.findElement(By.css('div[data-template-name="nodejs-hello-world"]')).click();
 driver.findElement(By.css('#create-project-button-import')).click();
 driver.sleep(100000);
-
 driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
 driver.sleep(10000)
 driver.switchTo().frame(0);
 driver.sleep(30000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(data=>{
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
-    console.log(data)
+koneksi.cari("codenvy",{nama:username},function(lapisan){
+  koneksi.updateId("codenvy",lapisan._id,{url:data})
+})
+
   })
   driver.sleep(5000)
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
@@ -113,13 +105,18 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit()
+  postmark.mendapatkanServer(data=>{
+    postmark.deleteServer(data.ID)
+  })
 }).catch(function(){
   driver.findElement(By.css("#gwt-debug-command_toolbar-button_Run")).click();
   driver.sleep(5000)
   driver.findElement(By.css(".gwt-PopupPanel")).click();
   driver.sleep(10000)
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
-    console.log(data)
+    koneksi.cari("codenvy",{nama:username},function(lapisan){
+      koneksi.updateId("codenvy",lapisan._id,{url:data})
+    })
   })
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
   driver.findElement(By.css(".terminal")).sendKeys("git clone https://github.com/lokimonoton/durant.git")
@@ -137,6 +134,9 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit()
+  postmark.mendapatkanServer(data=>{
+    postmark.deleteServer(data.ID)
+  })
 })
 }
 
@@ -201,7 +201,9 @@ driver.switchTo().frame(0);
 driver.sleep(30000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(data=>{
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
-    console.log(data)
+    koneksi.cari("codenvy",{nama:username},function(lapisan){
+      koneksi.updateId("codenvy",lapisan._id,{url:data})
+    })
   })
   driver.sleep(5000)
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
@@ -227,7 +229,9 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
   driver.findElement(By.css(".gwt-PopupPanel")).click();
   driver.sleep(10000)
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
-    console.log(data)
+    koneksi.cari("codenvy",{nama:username},function(lapisan){
+      koneksi.updateId("codenvy",lapisan._id,{url:data})
+    })
   })
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
   driver.findElement(By.css(".terminal")).sendKeys("git clone https://github.com/lokimonoton/durant.git")

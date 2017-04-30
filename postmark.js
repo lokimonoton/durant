@@ -5,7 +5,7 @@ axios.defaults.headers.post['Accept'] = 'application/json';
 axios.defaults.headers.post['X-Postmark-Account-Token'] = '39a15f25-e2ec-4d0d-8c64-c29d9c5f411a';
 var dataServer=[]
 //mendapatkan server
-var mendapatkanServer=function mendapatkanServer(){
+var mendapatkanServer=function mendapatkanServer(berhasil){
 axios.get('https://api.postmarkapp.com/servers?count=50&offset=0', {
   headers:{
       "X-Postmark-Account-Token":"39a15f25-e2ec-4d0d-8c64-c29d9c5f411a"
@@ -20,7 +20,7 @@ axios.get('https://api.postmarkapp.com/servers?count=50&offset=0', {
         inboundhookurl:data.InboundHookUrl
       });
     })
-    console.log(dataServer)
+    berhasil(dataServer)
   })
   .catch(function (error) {
     console.log(error);
