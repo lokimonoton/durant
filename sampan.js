@@ -6,12 +6,15 @@ var koneksi=require("./koneksi")
 //   postmark.deleteServer(data[0].ID)
 // }
 // })
+// koneksi.cari("codenvy",{},data=>{
+//   koneksi.hapus("codenvy",data._id)
+// })
 var perang=require("./perang")
 koneksi.cari("codenvy",{},function(sampai){
 var cane=sampai.length+1;
 if(sampai.length<1){
   postmark.buatServer("mboh","http://panda-kolotibablo.c9users.io/facebook",function(data){
-    perang.buatCodenvy(data.InboundAddress,"selacioniko"+cane)
+    perang.buatCodenvy(data.InboundAddress,"lampiskoci"+cane)
   })
 }
   })

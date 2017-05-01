@@ -3,5 +3,5 @@ while :
 do
 	echo "Press [CTRL+C] to stop.."
 sleep 480
-	xvfb-run node perang.js --masukkeduacodenvy $1
+	xvfb-run -a node perang.js --masukkeduacodenvy $1
 done

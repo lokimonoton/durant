@@ -9,10 +9,15 @@ app.get('/goal', function (req, res) {
 })
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname+'/lakim.html')
+  res.sendFile(__dirname+'/panda.html')
 })
 app.get('/codenvy',function(req,res){
   koneksi.cari('codenvy',{},function(data){
+    res.send(data)
+  })
+})
+app.get('/ecommerce',function(req,res){
+  koneksi.cari('pertanyaanecommerce',{},function(data){
     res.send(data)
   })
 })
@@ -20,12 +25,14 @@ app.get('/codenvy',function(req,res){
 var menggunakan=require("./perang")
 app.post('/facebook', jsonParser, function (req, res) {
   res.send("berhasil").status(200)
-  const cheerio = require('cheerio')
-  const $ = cheerio.load(req.body.HtmlBody)
+  console.log("berhasil")
+  var cheerio = require('cheerio')
+  var $ = cheerio.load(req.body.HtmlBody)
   koneksi.cari("codenvy",{},data=>{
-    
+    console.log($('a').eq(0).attr('href'))
+  menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'),data[data.length-1].username)  
   })
-  menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'))
+  
 
 })
 

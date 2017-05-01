@@ -28,6 +28,7 @@ driver.sleep(5000)
 driver.findElement(By.css('input.required.user-name')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(5000)
 driver.quit()
+koneksi.simpan("codenvy",{username:username})
 }
 
 
@@ -43,11 +44,25 @@ function masukPertamaCodenvy(url,username){
       .build();
   driver.manage().window().setSize(1000, 1000);
   driver.get(url);
-driver.sleep(5000)
+driver.sleep(15000)
+  driver.takeScreenshot().then(
+    function(image, err) {
+        require('fs').writeFile('out.png', image, 'base64', function(err) {
+            console.log(err);
+        });
+    }
+);
   driver.get('https://www.codenvy.io/dashboard');
-  driver.sleep(5000);
+  driver.sleep(15000);
   driver.get('https://codenvy.io/dashboard/#/account');
-  driver.sleep(5000);
+  driver.sleep(10000);
+  driver.takeScreenshot().then(
+    function(image, err) {
+        require('fs').writeFile('out.png', image, 'base64', function(err) {
+            console.log(err);
+        });
+    }
+);
 driver.findElement(By.css('input[placeholder="First Name"]')).sendKeys(webdriver.Key.chord(webdriver.Key.CONTROL,"a"));
 driver.sleep(2000)
   driver.findElement(By.css('input[placeholder="First Name"]')).sendKeys("parampa");
@@ -85,7 +100,7 @@ driver.switchTo().frame(0);
 driver.sleep(30000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(data=>{
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
-koneksi.cari("codenvy",{nama:username},function(lapisan){
+koneksi.cari("codenvy",{username:username},function(lapisan){
   koneksi.updateId("codenvy",lapisan._id,{url:data})
 })
 buatC9(username)
@@ -117,7 +132,7 @@ buatC9(username)
   driver.findElement(By.css(".gwt-PopupPanel")).click();
   driver.sleep(10000)
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
-    koneksi.cari("codenvy",{nama:username},function(lapisan){
+    koneksi.cari("codenvy",{username:username},function(lapisan){
       koneksi.updateId("codenvy",lapisan._id,{url:data})
     })
     buatC9(username)
@@ -205,7 +220,7 @@ driver.switchTo().frame(0);
 driver.sleep(30000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(data=>{
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
-    koneksi.cari("codenvy",{nama:username},function(lapisan){
+    koneksi.cari("codenvy",{username:username},function(lapisan){
       koneksi.updateId("codenvy",lapisan._id,{url:data})
     })
   })
@@ -233,7 +248,7 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
   driver.findElement(By.css(".gwt-PopupPanel")).click();
   driver.sleep(10000)
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
-    koneksi.cari("codenvy",{nama:username},function(lapisan){
+    koneksi.cari("codenvy",{username:username},function(lapisan){
       koneksi.updateId("codenvy",lapisan._id,{url:data})
     })
   })
