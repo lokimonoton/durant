@@ -319,7 +319,7 @@ function masukC9(projectName){
   driver.findElement(By.id('id-password')).sendKeys(webdriver.Key.ENTER);
   driver.sleep(10000)
 driver.get("https://ide.c9.io/kolotibablo/"+projectName)
-  driver.sleep(50000)
+  driver.sleep(30000)
   driver.findElement(By.xpath('//*[@id="q9"]/div[2]/div/div/div/textarea')).sendKeys("echo "+projectName);
   driver.findElement(By.xpath('//*[@id="q9"]/div[2]/div/div/div/textarea')).sendKeys(webdriver.Key.ENTER);
   driver.sleep(10000)
