@@ -12,7 +12,7 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname+'/lakim.html')
 })
 app.get('/codenvy',function(req,res){
-  koneksi.cari('pertanyaanecommerce',{},function(data){
+  koneksi.cari('codenvy',{},function(data){
     res.send(data)
   })
 })
@@ -22,6 +22,9 @@ app.post('/facebook', jsonParser, function (req, res) {
   res.send("berhasil").status(200)
   const cheerio = require('cheerio')
   const $ = cheerio.load(req.body.HtmlBody)
+  koneksi.cari("codenvy",{},data=>{
+    
+  })
   menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'))
 
 })
