@@ -1,6 +1,6 @@
 const exec = require('child_process').exec;
 var argv = require('yargs').argv;
-exec('java -jar selenium-server-standalone-2.45.0.jar', (err, stdout, stderr) => {
+exec('java -jar selenium-server-standalone-2.53.1.jar', (err, stdout, stderr) => {
   if (err) {
     console.error(err);
     return;
@@ -8,6 +8,7 @@ exec('java -jar selenium-server-standalone-2.45.0.jar', (err, stdout, stderr) =>
 
   console.log(stdout);
 });
+if(argv.username){
 exec('./infinityloop '+argv.username, (err, stdout, stderr) => {
   if (err) {
     console.error(err);
@@ -29,3 +30,4 @@ exec('nodemon lakim.js ', (err, stdout, stderr) => {
   }
 console.log(stdout)
 });
+}
