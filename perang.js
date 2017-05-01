@@ -320,8 +320,8 @@ function masukC9(projectName){
   driver.sleep(10000)
 driver.get("https://ide.c9.io/kolotibablo/"+projectName)
   driver.sleep(50000)
-  driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("ls");
-  driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
+  driver.findElement(By.xpath('//*[@id="q9"]/div[2]/div/div/div/textarea')).sendKeys("ls");
+  driver.findElement(By.xpath('//*[@id="q9"]/div[2]/div/div/div/textarea')).sendKeys(webdriver.Key.ENTER);
   driver.sleep(10000)
   driver.quit()
 }
