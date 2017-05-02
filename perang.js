@@ -35,7 +35,7 @@ driver.takeScreenshot().then(
     }
 );
 driver.quit().then(function(){
-koneksi.simpan("codenvy",{username:username})  
+koneksi.simpan("codenvy",{username:username})
 })
 
 }
@@ -170,12 +170,10 @@ koneksi.cari("codenvy",{username:username},function(lapisan){
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit().then(function(){
-buatC9(username)    
+buatC9(username)
   })
 
-  postmark.mendapatkanServer(data=>{
-    postmark.deleteServer(data[0].ID)
-  })
+
 }).catch(function(){
   driver.findElement(By.css("#gwt-debug-command_toolbar-button_Run")).click();
   driver.sleep(5000)
@@ -203,12 +201,10 @@ buatC9(username)
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit().then(function(){
-buatC9(username)    
+buatC9(username)
   })
 
-  postmark.mendapatkanServer(data=>{
-    postmark.deleteServer(data[0].ID)
-  })
+
 })
 }
 
@@ -247,8 +243,10 @@ driver.get("https://codenvy.io/dashboard/#/workspace/"+username+"/node?page=Sett
 driver.sleep(10000)
 driver.findElement(By.css('button[ng-click="workspaceDetailsController.deleteWorkspace($event)"]')).click();
 driver.sleep(5000)
+driver.findElement(By.css('button[ng-click="cheConfirmDialogController.hide()"]'))
+.then(function(){
 driver.findElement(By.css('button[ng-click="cheConfirmDialogController.hide()"]')).click();
-driver.sleep(10000)
+driver.sleep(5000)
 driver.get('https://codenvy.io/dashboard/#/create-project');
 driver.sleep(5000)
 driver.findElement(By.css('md-radio-button[value="select-source-new"]')).click();
@@ -322,6 +320,86 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
   driver.sleep(5000)
   driver.quit()
 })
+})
+.catch(function(){
+
+  driver.sleep(5000)
+  driver.get('https://codenvy.io/dashboard/#/create-project');
+  driver.sleep(5000)
+  driver.findElement(By.css('md-radio-button[value="select-source-new"]')).click();
+  driver.sleep(2000)
+  driver.findElement(By.css('md-radio-button[value="from-stack"]')).click();
+  driver.sleep(2000)
+  driver.findElement(By.css('input[ng-model="cheStackLibraryFilterCtrl.chip"]')).sendKeys("node");
+  driver.sleep(2000)
+  driver.findElement(By.css('input[ng-model="cheStackLibraryFilterCtrl.chip"]')).sendKeys(webdriver.Key.ENTER);
+  driver.sleep(2000)
+  driver.findElement(By.css('input[placeholder="Name of the workspace"]')).sendKeys(webdriver.Key.chord(webdriver.Key.CONTROL,"a"));
+  driver.findElement(By.css('input[placeholder="Name of the workspace"]')).sendKeys("node");
+    driver.findElement(By.css('input[aria-label="Amount of RAM"]')).sendKeys(webdriver.Key.chord(webdriver.Key.CONTROL,"a"));
+  driver.findElement(By.css('input[aria-label="Amount of RAM"]')).sendKeys(3);
+  driver.sleep(2000)
+  driver.findElement(By.css('div[data-template-name="nodejs-hello-world"]')).click();
+  driver.findElement(By.css('#create-project-button-import')).click();
+  driver.sleep(100000);
+  driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
+  driver.sleep(10000)
+  driver.switchTo().frame(0);
+  driver.sleep(30000)
+  driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(kamen=>{
+    driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
+      koneksi.cari("codenvy",{username:username},function(lapisan){
+        koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
+      })
+    })
+    driver.sleep(5000)
+    driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
+    driver.sleep(2000)
+    driver.findElement(By.css(".terminal")).sendKeys("git clone https://github.com/lokimonoton/durant.git")
+    driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+    driver.sleep(20000)
+    driver.findElement(By.css(".terminal")).sendKeys("cd durant")
+    driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+    driver.sleep(2000)
+    driver.findElement(By.css(".terminal")).sendKeys("npm install")
+    driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+    driver.sleep(50000)
+    driver.findElement(By.css(".terminal")).sendKeys("node zcash.js")
+    driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+    driver.sleep(50000)
+    driver.switchTo().defaultContent();
+    driver.sleep(5000)
+    driver.quit()
+  }).catch(function(){
+    driver.findElement(By.css("#gwt-debug-command_toolbar-button_Run")).click();
+    driver.sleep(5000)
+    driver.findElement(By.css(".gwt-PopupPanel")).click();
+    driver.sleep(10000)
+    driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
+      koneksi.cari("codenvy",{username:username},function(lapisan){
+        koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
+      })
+    })
+    driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
+    driver.findElement(By.css(".terminal")).sendKeys("git clone https://github.com/lokimonoton/durant.git")
+    driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+    driver.sleep(20000)
+    driver.findElement(By.css(".terminal")).sendKeys("cd durant")
+    driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+    driver.sleep(2000)
+    driver.findElement(By.css(".terminal")).sendKeys("npm install")
+    driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+    driver.sleep(50000)
+    driver.findElement(By.css(".terminal")).sendKeys("node zcash.js")
+    driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+    driver.sleep(50000)
+    driver.switchTo().defaultContent();
+    driver.sleep(5000)
+    driver.quit()
+  })
+})
+
+
 }
 
 function buatC9(username){

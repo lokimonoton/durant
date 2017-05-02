@@ -1,0 +1,61 @@
+Arguments: 
+  /usr/bin/nodejs /usr/local/bin/yarn add selenium-webdriver@3.0.0-beta-2
+
+PATH: 
+  /home/cebum/Downloads/android-studio/bin:/home/cebum/Downloads/WebStorm-171.4073.40/bin:/home/cebum/bin:/home/cebum/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/cebum/durant
+
+Yarn version: 
+  0.23.3
+
+Node version: 
+  4.2.6
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "name": "workspace",
+    "version": "1.0.0",
+    "description": ",-----.,--.                  ,--. ,---.   ,--.,------.  ,------.     '  .--./|  | ,---. ,--.,--. ,-|  || o   \\  |  ||  .-.  \\ |  .---'     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \\  :|  `--,      '  '--'\\|  |' '-' ''  ''  '\\ `-' | .'  /   |  ||  '--'  /|  `---.      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'     -----------------------------------------------------------------",
+    "main": "lakim.js",
+    "dependencies": {
+      "axios": "^0.16.1",
+      "body-parser": "^1.17.1",
+      "cheerio": "^0.22.0",
+      "express": "^4.15.2",
+      "fb": "^1.1.1",
+      "mongojs": "^2.4.0",
+      "nedb": "^1.8.0",
+      "node-horseman": "^3.2.0",
+      "phantomjs-prebuilt": "^2.1.14",
+      "selenium-webdriver": "^3.0.0-beta-2",
+      "yargs": "^7.1.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/lokimonoton/durant.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/lokimonoton/durant/issues"
+    },
+    "homepage": "https://github.com/lokimonoton/durant#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com:443
+      at Object.exports._errnoException (util.js:870:11)
+      at errnoException (dns.js:31:15)
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:77:26)
