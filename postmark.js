@@ -59,7 +59,7 @@ var editServer=function editServer(token,inbound){
   });
   }
   //delete server
-  var deleteServer=function(id){
+  var deleteServer=function(id,selesai){
     axios.delete("https://api.postmarkapp.com/servers/"+id,{
       headers:{
         "Accept":"application/json",
@@ -67,10 +67,10 @@ var editServer=function editServer(token,inbound){
       }
     })
     .then(function(data){
-      console.log(data.data)
+      selesai(data.data)
     })
     .catch(function(err){
-      console.log(err)
+      selesai(err)
     })
   }
   //mendapatkan message

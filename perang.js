@@ -43,7 +43,23 @@ function masukCodenvy(url,username){
       .build();
   driver.manage().window().setSize(1000, 1000);
   driver.get(url);
-driver.sleep(15000)
+driver.sleep(3000)
+driver.findElement(By.xpath('//*[@id="jobtitle"]')).click()
+driver.sleep(2000)
+driver.findElement(By.xpath('//*[@id="jobtitle"]/option[3]')).click()
+driver.sleep(2000)
+driver.findElement(By.xpath('//*[@id="country"]')).click()
+driver.sleep(2000)
+driver.findElement(By.xpath('//*[@id="country"]/option[3]')).click()
+driver.sleep(5000)
+driver.findElement(By.xpath('//*[@id="firstName"]')).sendKeys('lakimbk')
+driver.sleep(5000)
+driver.findElement(By.xpath('//*[@id="lastName"]')).sendKeys("sanci")
+driver.sleep(5000)
+driver.findElement(By.xpath('//*[@id="employer"]')).sendKeys("lakoms")
+driver.sleep(5000)
+driver.findElement(By.xpath('//*[@id="profileForm"]/span/div[6]/input')).click()
+driver.sleep(10000)
   driver.takeScreenshot().then(
     function(image, err) {
         require('fs').writeFile('out.png', image, 'base64', function(err) {
@@ -51,6 +67,8 @@ driver.sleep(15000)
         });
     }
 );
+driver.sleep(2000)
+driver.quit()
 }
 function masukPertamaCodenvy(url,username){
   var webdriver = require('selenium-webdriver'),
@@ -63,26 +81,28 @@ function masukPertamaCodenvy(url,username){
       .build();
   driver.manage().window().setSize(1000, 1000);
   driver.get(url);
-driver.sleep(15000)
-  driver.takeScreenshot().then(
-    function(image, err) {
-        require('fs').writeFile('out.png', image, 'base64', function(err) {
-            console.log(err);
-        });
-    }
-);
-  driver.get('https://www.codenvy.io/dashboard');
+  driver.sleep(3000)
+driver.findElement(By.xpath('//*[@id="jobtitle"]')).click()
+driver.sleep(2000)
+driver.findElement(By.xpath('//*[@id="jobtitle"]/option[3]')).click()
+driver.sleep(2000)
+driver.findElement(By.xpath('//*[@id="country"]')).click()
+driver.sleep(2000)
+driver.findElement(By.xpath('//*[@id="country"]/option[3]')).click()
+driver.sleep(5000)
+driver.findElement(By.xpath('//*[@id="firstName"]')).sendKeys('lakimbk')
+driver.sleep(5000)
+driver.findElement(By.xpath('//*[@id="lastName"]')).sendKeys("sanci")
+driver.sleep(5000)
+driver.findElement(By.xpath('//*[@id="employer"]')).sendKeys("lakoms")
+driver.sleep(5000)
+driver.findElement(By.xpath('//*[@id="profileForm"]/span/div[6]/input')).click()
+driver.sleep(10000)
+   driver.get('https://www.codenvy.io/dashboard');
   driver.sleep(15000);
   driver.get('https://codenvy.io/dashboard/#/account');
   driver.sleep(10000);
-  driver.takeScreenshot().then(
-    function(image, err) {
-        require('fs').writeFile('out.png', image, 'base64', function(err) {
-            console.log(err);
-        });
-    }
-);
-driver.findElement(By.css('input[placeholder="First Name"]')).sendKeys(webdriver.Key.chord(webdriver.Key.CONTROL,"a"));
+ driver.findElement(By.css('input[placeholder="First Name"]')).sendKeys(webdriver.Key.chord(webdriver.Key.CONTROL,"a"));
 driver.sleep(2000)
   driver.findElement(By.css('input[placeholder="First Name"]')).sendKeys("parampa");
 driver.sleep(2000)
@@ -394,5 +414,6 @@ module.exports={
   buatCodenvy:buatCodenvy,
   buatC9:buatC9,
   masukPertamaCodenvy:masukPertamaCodenvy,
+  masukCodenvy:masukCodenvy,
   masukKeduaCodenvy:masukKeduaCodenvy,
 }

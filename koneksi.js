@@ -6,9 +6,11 @@ var pencarian=function(nama,koleksi,fungsi){
 db.collection(nama).find(koleksi, function(err, users) {
 if(typeof(users)!= "undefined" && users.length>0){
   fungsi(users)
+  
 }else{
-
   fungsi([])
+
+  
 }
 })
 }
@@ -16,9 +18,14 @@ if(typeof(users)!= "undefined" && users.length>0){
 
 var simpan=function(nama,koleksi){
  db.collection(nama).save(koleksi, function(err, saved) {
-  if( err || !saved ) console.log("User not saved");
-  else console.log("User saved");
-
+  if( err || !saved ){ 
+  console.log("User not saved");
+  
+  }
+  else{ 
+  console.log("User saved");
+  
+}
 
  });
 }
@@ -40,8 +47,10 @@ var hapus=function(nama,kondisi){
 db.collection(nama).remove({_id:db.ObjectId(kondisi)}, {}, function(data,panda){
   if(!data){
     console.log("sukses menghapus")
+    
   }else{
     console.log("error: "+panda)
+    
   }
 // pencarian(nama,{},(data)=>{
 //   console.log(data)
@@ -53,6 +62,8 @@ var hapusKoleksi=function(nama){
 
   db.collection(nama).drop(function(data){
     console.log(data)
+  
+    
   })
 }
 
@@ -60,6 +71,7 @@ var hapusKoleksi=function(nama){
 var semuaKoleksi=function(panda){db.getCollectionNames(function(err, colNames) {
 if (err) return console.log(err);
 panda(colNames)
+
 });}
 module.exports={
   cari:pencarian,
