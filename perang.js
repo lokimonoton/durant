@@ -27,8 +27,17 @@ driver.findElement(By.css('input.required.user-name')).sendKeys(username);
 driver.sleep(5000)
 driver.findElement(By.css('input.required.user-name')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(5000)
-driver.quit()
-koneksi.simpan("codenvy",{username:username})
+driver.takeScreenshot().then(
+    function(image, err) {
+        require('fs').writeFile('out1.png', image, 'base64', function(err) {
+            console.log(err);
+        });
+    }
+);
+driver.quit().then(function(){
+koneksi.simpan("codenvy",{username:username})  
+})
+
 }
 
 
@@ -160,8 +169,10 @@ koneksi.cari("codenvy",{username:username},function(lapisan){
   driver.sleep(50000)
   driver.switchTo().defaultContent();
   driver.sleep(5000)
-  driver.quit()
-buatC9(username)
+  driver.quit().then(function(){
+buatC9(username)    
+  })
+
   postmark.mendapatkanServer(data=>{
     postmark.deleteServer(data[0].ID)
   })
@@ -191,8 +202,10 @@ buatC9(username)
   driver.sleep(50000)
   driver.switchTo().defaultContent();
   driver.sleep(5000)
-  driver.quit()
-buatC9(username)
+  driver.quit().then(function(){
+buatC9(username)    
+  })
+
   postmark.mendapatkanServer(data=>{
     postmark.deleteServer(data[0].ID)
   })
