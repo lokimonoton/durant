@@ -30,9 +30,9 @@ app.post('/facebook', jsonParser, function (req, res) {
   var $ = cheerio.load(req.body.HtmlBody)
   koneksi.cari("codenvy",{},data=>{
     console.log($('a').eq(0).attr('href'))
-  menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'),data[data.length-1].username)  
+  menggunakan.masukCodenvy($('a').eq(0).attr('href'),data[data.length-1].username)  
   })
-  
+
 
 })
 

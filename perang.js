@@ -5,7 +5,7 @@ if(argv.masukc9){
   masukC9(argv.masukc9)
 }
 if(argv.masukkeduacodenvy){
-  masukKeduaCodenvy(argv.masukc9)
+  masukKeduaCodenvy(argv.masukkeduacodenvy)
 }
 if(argv.delete){
   deleteC9(argv.delete)
@@ -32,7 +32,26 @@ koneksi.simpan("codenvy",{username:username})
 }
 
 
+function masukCodenvy(url,username){
+  var webdriver = require('selenium-webdriver'),
+      By = webdriver.By,
+      until = webdriver.until;
 
+  var driver = new webdriver.Builder()
+      .forBrowser('chrome')
+      // .usingServer('http://localhost:4444/wd/hub')
+      .build();
+  driver.manage().window().setSize(1000, 1000);
+  driver.get(url);
+driver.sleep(15000)
+  driver.takeScreenshot().then(
+    function(image, err) {
+        require('fs').writeFile('out.png', image, 'base64', function(err) {
+            console.log(err);
+        });
+    }
+);
+}
 function masukPertamaCodenvy(url,username){
   var webdriver = require('selenium-webdriver'),
       By = webdriver.By,
@@ -98,12 +117,11 @@ driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
 driver.sleep(10000)
 driver.switchTo().frame(0);
 driver.sleep(30000)
-driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(data=>{
-  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
+driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(kamen=>{
+  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
 koneksi.cari("codenvy",{username:username},function(lapisan){
-  koneksi.updateId("codenvy",lapisan._id,{url:data})
+  koneksi.updateId("codenvy",lapisan._id,{url:rider})
 })
-buatC9(username)
   })
   driver.sleep(5000)
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
@@ -123,6 +141,7 @@ buatC9(username)
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit()
+buatC9(username)
   postmark.mendapatkanServer(data=>{
     postmark.deleteServer(data[0].ID)
   })
@@ -131,11 +150,11 @@ buatC9(username)
   driver.sleep(5000)
   driver.findElement(By.css(".gwt-PopupPanel")).click();
   driver.sleep(10000)
-  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
+  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
     koneksi.cari("codenvy",{username:username},function(lapisan){
-      koneksi.updateId("codenvy",lapisan._id,{url:data})
+      koneksi.updateId("codenvy",lapisan._id,{url:rider})
     })
-    buatC9(username)
+
   })
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
   driver.findElement(By.css(".terminal")).sendKeys("git clone https://github.com/lokimonoton/durant.git")
@@ -153,6 +172,7 @@ buatC9(username)
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit()
+buatC9(username)
   postmark.mendapatkanServer(data=>{
     postmark.deleteServer(data[0].ID)
   })
@@ -218,10 +238,10 @@ driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
 driver.sleep(10000)
 driver.switchTo().frame(0);
 driver.sleep(30000)
-driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(data=>{
-  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
+driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(kamen=>{
+  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
     koneksi.cari("codenvy",{username:username},function(lapisan){
-      koneksi.updateId("codenvy",lapisan._id,{url:data})
+      koneksi.updateId("codenvy",lapisan._id,{url:rider})
     })
   })
   driver.sleep(5000)
@@ -247,9 +267,9 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
   driver.sleep(5000)
   driver.findElement(By.css(".gwt-PopupPanel")).click();
   driver.sleep(10000)
-  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(data=>{
+  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
     koneksi.cari("codenvy",{username:username},function(lapisan){
-      koneksi.updateId("codenvy",lapisan._id,{url:data})
+      koneksi.updateId("codenvy",lapisan._id,{url:rider})
     })
   })
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
@@ -304,6 +324,9 @@ driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKey
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(50000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm i selenium-webdriver@3.0.0-beta-2 --save");
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(50000)
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm install");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(50000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm install -g nodemon");
