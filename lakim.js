@@ -31,7 +31,7 @@ app.post('/facebook', jsonParser, function (req, res) {
   if($('a').eq(0).attr('href')!="https://codenvy.io/dashboard"){
   koneksi.cari("codenvy",{},data=>{
     console.log($('a').eq(0).attr('href'))
-  // menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'),data[data.length-1].username)  
+  menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'),data[data.length-1].username)  
   })
 }
 

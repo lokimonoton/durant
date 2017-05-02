@@ -149,7 +149,7 @@ driver.sleep(30000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(kamen=>{
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
 koneksi.cari("codenvy",{username:username},function(lapisan){
-  koneksi.updateId("codenvy",lapisan._id,{url:rider})
+  koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
 })
   })
   driver.sleep(5000)
@@ -183,7 +183,7 @@ buatC9(username)
   driver.sleep(10000)
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
     koneksi.cari("codenvy",{username:username},function(lapisan){
-      koneksi.updateId("codenvy",lapisan._id,{url:rider})
+      koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
     })
 
   })
@@ -274,7 +274,7 @@ driver.sleep(30000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).getText().then(kamen=>{
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
     koneksi.cari("codenvy",{username:username},function(lapisan){
-      koneksi.updateId("codenvy",lapisan._id,{url:rider})
+      koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
     })
   })
   driver.sleep(5000)
@@ -302,7 +302,7 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
   driver.sleep(10000)
   driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
     koneksi.cari("codenvy",{username:username},function(lapisan){
-      koneksi.updateId("codenvy",lapisan._id,{url:rider})
+      koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
     })
   })
   driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
