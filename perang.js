@@ -7,6 +7,9 @@ if(argv.masukc9){
 if(argv.masukkeduacodenvy){
   masukKeduaCodenvy(argv.masukkeduacodenvy)
 }
+if(argv.pembukaan){
+  pembukaan(argv.pembukaan)
+}
 if(argv.delete){
   deleteC9(argv.delete)
 }
@@ -246,12 +249,34 @@ driver.sleep(5000)
 driver.findElement(By.css('button[ng-click="cheConfirmDialogController.hide()"]'))
 .then(function(){
 driver.findElement(By.css('button[ng-click="cheConfirmDialogController.hide()"]')).click();
-driver.quit()
-pembukaan(username)
+driver.sleep(10000)
+driver.quit().then(function(){
+  const exec = require('child_process').exec;
+  exec('node perang.js --pembukaan '+username, (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  console.log("pembukaan")
+  });
+})
+
 })
 .catch(function(){
-  driver.quit()
-pembukaan(username)
+driver.quit().then(function(){
+  const exec = require('child_process').exec;
+  exec('node perang.js --pembukaan '+username, (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  console.log("pembukaan")
+  });
+
+})
+
+
+
 })
 
 
@@ -265,26 +290,35 @@ function pembukaan(username){
       .forBrowser('chrome')
       // .usingServer('http://localhost:4444/wd/hub')
       .build();
+      driver.manage().window().setSize(1000, 1000);
       driver.get('https://www.codenvy.io/');
+      driver.sleep(10000)
     driver.findElement(By.css('#username')).sendKeys(username);
     driver.findElement(By.css('input[type="password"]')).sendKeys("plokotoklucu1");
     driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
     driver.sleep(5000)
   driver.get('https://codenvy.io/dashboard/#/create-project');
-  driver.sleep(5000)
+  driver.sleep(10000)
+  driver.takeScreenshot().then(
+      function(image, err) {
+          require('fs').writeFile('out.png', image, 'base64', function(err) {
+              console.log(err);
+          });
+      }
+  );
   driver.findElement(By.css('md-radio-button[value="select-source-new"]')).click();
-  driver.sleep(2000)
+  driver.sleep(5000)
   driver.findElement(By.css('md-radio-button[value="from-stack"]')).click();
-  driver.sleep(2000)
+  driver.sleep(5000)
   driver.findElement(By.css('input[ng-model="cheStackLibraryFilterCtrl.chip"]')).sendKeys("node");
-  driver.sleep(2000)
+  driver.sleep(5000)
   driver.findElement(By.css('input[ng-model="cheStackLibraryFilterCtrl.chip"]')).sendKeys(webdriver.Key.ENTER);
-  driver.sleep(2000)
+  driver.sleep(5000)
   driver.findElement(By.css('input[placeholder="Name of the workspace"]')).sendKeys(webdriver.Key.chord(webdriver.Key.CONTROL,"a"));
   driver.findElement(By.css('input[placeholder="Name of the workspace"]')).sendKeys("node");
     driver.findElement(By.css('input[aria-label="Amount of RAM"]')).sendKeys(webdriver.Key.chord(webdriver.Key.CONTROL,"a"));
   driver.findElement(By.css('input[aria-label="Amount of RAM"]')).sendKeys(3);
-  driver.sleep(2000)
+  driver.sleep(5000)
   driver.findElement(By.css('div[data-template-name="nodejs-hello-world"]')).click();
   driver.findElement(By.css('#create-project-button-import')).click();
   driver.sleep(100000);
