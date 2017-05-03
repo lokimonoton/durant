@@ -430,7 +430,7 @@ driver.sleep(10000)
 driver.quit().then(function(){
   console.log("memulai pembuatan lagi")
   const exec = require('child_process').exec;
-  exec('source ./jikaberhasil', (err, stdout, stderr) => {
+  exec('berubah', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
       return;

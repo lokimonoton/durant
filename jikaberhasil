@@ -6,7 +6,7 @@ SUDAH=$((SUDAH+=1));
      echo $SUDAH;
      xvfb-run -a node sampan.js
 else
-SUDAH=1
+SUDAH=0
 sleep 3600
 xvfb-run -a node sampan.js
 fi;

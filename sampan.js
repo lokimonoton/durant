@@ -12,7 +12,7 @@ var cane=sampai.length+1;
 if(sampai.length<100000){
 
   postmark.buatServer("mboh","http://panda-kolotibablo.c9users.io/facebook",function(data){
-    menggunakan.buatCodenvy(data.InboundAddress,"salakojiko"+cane)
+    menggunakan.buatCodenvy(data.InboundAddress,"hokbenlucupanda"+cane)
   })
 
 
@@ -27,7 +27,7 @@ var cane=sampai.length+1;
 if(sampai.length<100000){
 
   postmark.buatServer("mboh","http://panda-kolotibablo.c9users.io/facebook",function(data){
-    menggunakan.buatCodenvy(data.InboundAddress,"salakojiko"+cane)
+    menggunakan.buatCodenvy(data.InboundAddress,"hokbenlucupanda"+cane)
   })
 
 
