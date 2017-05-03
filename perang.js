@@ -70,8 +70,6 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/u
 driver.sleep(5000)
   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.chord(webdriver.Key.ALT,webdriver.Key.F12));
 driver.sleep(5000)
-driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[4]")).click()
-  driver.sleep(2000)
   driver.findElement(By.css(".terminal")).sendKeys("echo "+username)
   driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
 
