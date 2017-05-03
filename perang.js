@@ -13,6 +13,9 @@ if(argv.pembukaan){
 if(argv.delete){
   deleteC9(argv.delete)
 }
+if(argv.masukcodenvy){
+  deleteC9(argv.masukcodenvy)
+}
 function buatCodenvy(email,username){
 var webdriver = require('selenium-webdriver'),
     By = webdriver.By,
