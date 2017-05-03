@@ -44,7 +44,7 @@ koneksi.simpan("codenvy",{username:username})
 }
 
 
-function masukCodenvy(url,username){
+function masukCodenvy(username){
   var webdriver = require('selenium-webdriver'),
       By = webdriver.By,
       until = webdriver.until;
@@ -54,24 +54,20 @@ function masukCodenvy(url,username){
       // .usingServer('http://localhost:4444/wd/hub')
       .build();
   driver.manage().window().setSize(1000, 1000);
-  driver.get(url);
-driver.sleep(3000)
-driver.findElement(By.xpath('//*[@id="jobtitle"]')).click()
-driver.sleep(2000)
-driver.findElement(By.xpath('//*[@id="jobtitle"]/option[3]')).click()
-driver.sleep(2000)
-driver.findElement(By.xpath('//*[@id="country"]')).click()
-driver.sleep(2000)
-driver.findElement(By.xpath('//*[@id="country"]/option[3]')).click()
-driver.sleep(5000)
-driver.findElement(By.xpath('//*[@id="firstName"]')).sendKeys('lakimbk')
-driver.sleep(5000)
-driver.findElement(By.xpath('//*[@id="lastName"]')).sendKeys("sanci")
-driver.sleep(5000)
-driver.findElement(By.xpath('//*[@id="employer"]')).sendKeys("lakoms")
-driver.sleep(5000)
-driver.findElement(By.xpath('//*[@id="profileForm"]/span/div[6]/input')).click()
+driver.get('https://www.codenvy.io/');
+driver.findElement(By.css('#username')).sendKeys(username);
+driver.findElement(By.css('input[type="password"]')).sendKeys("plokotoklucu1");
+driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
+driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
+driver.sleep(30000)
+driver.switchTo().frame(0);
 driver.sleep(10000)
+driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/div/span/span[2]/svg')).click()
+driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
+  driver.sleep(2000)
+  driver.findElement(By.css(".terminal")).sendKeys("echo "+username)
+  driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+
   driver.takeScreenshot().then(
     function(image, err) {
         require('fs').writeFile('out.png', image, 'base64', function(err) {
