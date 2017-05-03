@@ -66,7 +66,7 @@ driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
 driver.sleep(30000)
 driver.switchTo().frame(0);
 driver.sleep(10000)
-driver.findElement(By.css('//*[@id="gwt-debug-MenuItem/runGroup-true"]')).click()
+driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
 driver.sleep(5000)
   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.chord(webdriver.Key.ALT,webdriver.Key.F12));
 driver.sleep(5000)
