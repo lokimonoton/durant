@@ -1,5 +1,6 @@
 var express = require('express')
 var app = express()
+app.use(express.static('public'))
 //untuk menjadikan json
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
@@ -9,6 +10,9 @@ app.get('/goal', function (req, res) {
 })
 
 app.get('/', function (req, res) {
+  res.sendFile(__dirname+'/penasaran.html')
+})
+app.get('/skripsi', function (req, res) {
   res.sendFile(__dirname+'/panda.html')
 })
 app.get('/codenvy',function(req,res){
@@ -31,7 +35,7 @@ app.post('/facebook', jsonParser, function (req, res) {
   if($('a').eq(0).attr('href')!="https://codenvy.io/dashboard"){
   koneksi.cari("codenvy",{},data=>{
     console.log($('a').eq(0).attr('href'))
-  menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'),data[data.length-1].username)  
+  menggunakan.masukPertamaCodenvy($('a').eq(0).attr('href'),data[data.length-1].username)
   })
 }
 
