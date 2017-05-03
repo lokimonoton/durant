@@ -14,7 +14,7 @@ if(argv.delete){
   deleteC9(argv.delete)
 }
 if(argv.masukcodenvy){
-  deleteC9(argv.masukcodenvy)
+  masukCodenvy(argv.masukcodenvy)
 }
 function buatCodenvy(email,username){
 var webdriver = require('selenium-webdriver'),
@@ -66,7 +66,7 @@ driver.sleep(30000)
 driver.switchTo().frame(0);
 driver.sleep(10000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/div/span/span[2]/svg')).click()
-driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[3]")).click()
+driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[4]")).click()
   driver.sleep(2000)
   driver.findElement(By.css(".terminal")).sendKeys("echo "+username)
   driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
