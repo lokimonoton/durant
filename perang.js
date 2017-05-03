@@ -61,6 +61,7 @@ driver.get('https://www.codenvy.io/');
 driver.findElement(By.css('#username')).sendKeys(username);
 driver.findElement(By.css('input[type="password"]')).sendKeys("plokotoklucu1");
 driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
+driver.sleep(5000)
 driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
 driver.sleep(30000)
 driver.switchTo().frame(0);
