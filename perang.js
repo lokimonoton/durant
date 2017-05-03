@@ -74,8 +74,8 @@ driver.sleep(5000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[5]')).click()
 
 driver.sleep(5000)
-  driver.findElement(By.css(".terminal")).sendKeys("echo "+username)
-  driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
+  driver.findElement(By.xpath('//*[@id="gwt-debug-Terminal-2"]/div[2]/div')).sendKeys("echo "+username)
+  driver.findElement(By.xpath('//*[@id="gwt-debug-Terminal-2"]/div[2]/div')).sendKeys(webdriver.Key.ENTER)
 
   driver.takeScreenshot().then(
     function(image, err) {
