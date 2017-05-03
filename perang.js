@@ -68,7 +68,7 @@ driver.switchTo().frame(0);
 driver.sleep(10000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-MenuItem/runGroup-true"]')).click()
 driver.sleep(5000)
-driver.findElement(By.xpath('//*[@id="topmenu/Run/Terminal"]"]')).click()
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.chord(webdriver.Key.ALT,webdriver.Key.F12));
 driver.sleep(5000)
 driver.findElement(By.xpath("//*[@id='gwt-debug-multiSplitPanel-tabsPanel']/div[4]")).click()
   driver.sleep(2000)
