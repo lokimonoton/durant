@@ -1,6 +1,8 @@
 var express = require('express')
 var app = express()
 app.use(express.static('public'))
+var axios=require('axios')
+var crypto = require('crypto')
 //untuk menjadikan json
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
@@ -25,6 +27,7 @@ app.get('/ecommerce',function(req,res){
     res.send(data)
   })
 })
+
 //webhook mendapatkan notifikasi facebook
 var menggunakan=require("./perang")
 app.post('/facebook', jsonParser, function (req, res) {

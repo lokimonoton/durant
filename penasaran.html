@@ -31,7 +31,7 @@
     <md-icon>menu</md-icon>
   </md-button>
 
-  <h2 class="md-title" style="flex: 1">NATURAL LANGUAGE PROCESSING</h2>
+  <h2 class="md-title" style="flex: 1">PANDA</h2>
 
   <md-button>Add</md-button>
   <md-button class="md-raised">Remove</md-button>
@@ -72,37 +72,13 @@
 
   </md-list>
   </md-sidenav>
-
+<span>BISMILLAH, WORK HARD LESS SLEEP , SUKSES</span>
   <md-layout md-gutter>
-  <md-layout md-column>
-    <span>BISMILLAH, WORK HARD LESS SLEEP , SUKSES</span>
-    <md-layout md-flex="20">
-      <md-card>
-      <md-card-media-cover md-text-scrim>
-        <md-card-media md-ratio="16:9">
-          <img src="assets/card-sky.jpg" alt="Skyscraper">
-        </md-card-media>
-
-        <md-card-area>
-          <md-card-header>
-            <div class="md-title">Title goes here</div>
-            <div class="md-subhead">Subtitle here</div>
-          </md-card-header>
-
-          <md-card-actions>
-            <md-button>Action</md-button>
-            <md-button>Action</md-button>
-          </md-card-actions>
-        </md-card-area>
-      </md-card-media-cover>
-    </md-card>
-  </md-layout>
-  JAWABAN:
-  </md-layout>
-</md-layout>
-  <md-layout  >
-    <span>LIST PERTANYAAN</span>
+      <md-layout  >
+    <span>LIST </span>
     <div class="completos">
+      BITcoin:{{bitfinex.bitcoin}}</br>
+      zcash:{{bitfinex.zcash}}
   <md-table md-sort="number">
   <md-table-header>
     <md-table-row>
@@ -114,7 +90,7 @@
   <md-table-body>
     <md-table-row v-for="(row, index) in codenvy" :key="index">
       <md-table-cell >{{index+1}}</md-table-cell>
-      <md-table-cell v-for="(value, index) in row">{{value}}</md-table-cell>
+      <md-table-cell v-for="(value, index) in row" v-html='value.indexOf("http") > -1 ? "<a target=\"_blank\" href=\""+value+"\">"+value+"</a>" : value'></md-table-cell>
 
     </md-table-row>
   </md-table-body>
@@ -148,6 +124,7 @@ var app = new Vue({
   el: '#app',
   data: {
     codenvy: [],
+    bitfinex:{bitcoin:0,zcash:0},
   },
   mounted:function(){
 this.$http.get('/codenvy').then(data=>{
@@ -157,6 +134,7 @@ this.$http.get('/codenvy').then(data=>{
 , err=>{
   console.log(err)
 })
+
   },
   methods:{
 toggleLeftSidenav: function(){

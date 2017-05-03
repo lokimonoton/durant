@@ -173,6 +173,7 @@ koneksi.cari("codenvy",{username:username},function(lapisan){
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit().then(function(){
+    console.log("memulai pembuatan c9")
 buatC9(username)
   })
 
@@ -204,6 +205,7 @@ buatC9(username)
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit().then(function(){
+    console.log("memulai pembuatan c9")
 buatC9(username)
   })
 
@@ -406,26 +408,36 @@ driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKey
 driver.sleep(5000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get update");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(20000)
+driver.sleep(50000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("sudo apt-get install xvfb chromium-browser -y");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(50000)
+driver.sleep(100000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm i selenium-webdriver@3.0.0-beta-2 --save");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(50000)
+driver.sleep(5000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm install");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(50000)
+driver.sleep(100000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("npm install -g nodemon");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(10000)
+driver.sleep(20000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("export PATH=$PATH:$(pwd)");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(2000)
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("node xserver.js --username "+username+" &");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
-driver.sleep(100000)
-driver.quit()
+driver.sleep(10000)
+driver.quit().then(function(){
+  console.log("memulai pembuatan lagi")
+  const exec = require('child_process').exec;
+  exec('source ./jikaberhasil', (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  console.log("buat codenvy lagi")
+  });
+})
 }
 
 function masukC9(projectName){
