@@ -63,7 +63,7 @@ driver.findElement(By.css('input[type="password"]')).sendKeys("plokotoklucu1");
 driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(5000)
 driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
-driver.sleep(30000)
+driver.sleep(50000)
 driver.switchTo().frame(0);
 driver.sleep(10000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).then(function(){
