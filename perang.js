@@ -103,7 +103,6 @@ driver.quit()
     })
 
   })
-})
 driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
 driver.sleep(5000)
 
@@ -120,6 +119,9 @@ driver.sleep(5000)
 );
 
 driver.quit()  
+  
+})
+
 }
 function masukPertamaCodenvy(url,username){
   var webdriver = require('selenium-webdriver'),
