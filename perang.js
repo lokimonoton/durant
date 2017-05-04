@@ -93,32 +93,17 @@ driver.sleep(5000)
 driver.quit()  
 })
 .catch(function(){
-  driver.findElement(By.css("#gwt-debug-command_toolbar-button_Run")).click();
-  driver.sleep(5000)
-  driver.findElement(By.css(".gwt-PopupPanel")).click();
-  driver.sleep(10000)
-  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
-    koneksi.cari("codenvy",{username:username},function(lapisan){
-      koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
-    })
-
-  })
-driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
-driver.sleep(5000)
-
-  driver.findElement(By.css('.terminal')).sendKeys("ps -ef | grep ./nheqminer");
-  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
-  driver.sleep(5000)
-
-  driver.takeScreenshot().then(
-    function(image, err) {
-        require('fs').writeFile('out.png', image, 'base64', function(err) {
-            console.log(err);
-        });
+  
+driver.quit().then(function(){
+  const exec = require('child_process').exec;
+  exec('node perang.js --masukkeduacodenvy '+username, (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
     }
-);
-
-driver.quit()  
+  console.log("pembukaan")
+  });
+})  
   
 })
 
