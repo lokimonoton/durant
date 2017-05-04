@@ -69,13 +69,9 @@ driver.sleep(10000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
 driver.sleep(5000)
 
-  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.chord(webdriver.Key.ALT,webdriver.Key.F12));
+  driver.findElement(By.css('.terminal')).sendKeys("echo "+username);
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
   driver.sleep(5000)
-driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[5]')).click()
-
-driver.sleep(5000)
-  driver.findElement(By.xpath('//*[@id="gwt-debug-Terminal-2"]/div[2]/div')).sendKeys("echo "+username)
-  driver.findElement(By.xpath('//*[@id="gwt-debug-Terminal-2"]/div[2]/div')).sendKeys(webdriver.Key.ENTER)
 
   driver.takeScreenshot().then(
     function(image, err) {
@@ -84,7 +80,7 @@ driver.sleep(5000)
         });
     }
 );
-driver.sleep(2000)
+
 driver.quit()
 }
 function masukPertamaCodenvy(url,username){
