@@ -73,7 +73,7 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
     })
 
   })
-})
+
 driver.sleep(2000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
 driver.sleep(5000)
