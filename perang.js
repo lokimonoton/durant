@@ -66,6 +66,15 @@ driver.get("https://codenvy.io/dashboard/#/ide/"+username+"/node")
 driver.sleep(30000)
 driver.switchTo().frame(0);
 driver.sleep(10000)
+driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[4]')).then(function(){
+ driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
+    koneksi.cari("codenvy",{username:username},function(lapisan){
+      koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
+    })
+
+  })
+})
+driver.sleep(2000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
 driver.sleep(5000)
 
@@ -81,7 +90,36 @@ driver.sleep(5000)
     }
 );
 
-driver.quit()
+driver.quit()  
+})
+.catch(function(){
+  driver.findElement(By.css("#gwt-debug-command_toolbar-button_Run")).click();
+  driver.sleep(5000)
+  driver.findElement(By.css(".gwt-PopupPanel")).click();
+  driver.sleep(10000)
+  driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[4]/div/div[2]/div/div[3]/div/div[4]/div/div[4]/div/a')).getText().then(rider=>{
+    koneksi.cari("codenvy",{username:username},function(lapisan){
+      koneksi.updateId("codenvy",lapisan[0]._id,{url:rider})
+    })
+
+  })
+})
+driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
+driver.sleep(5000)
+
+  driver.findElement(By.css('.terminal')).sendKeys("ps -ef | grep ./nheqminer");
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
+  driver.sleep(5000)
+
+  driver.takeScreenshot().then(
+    function(image, err) {
+        require('fs').writeFile('out.png', image, 'base64', function(err) {
+            console.log(err);
+        });
+    }
+);
+
+driver.quit()  
 }
 function masukPertamaCodenvy(url,username){
   var webdriver = require('selenium-webdriver'),
