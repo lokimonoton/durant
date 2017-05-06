@@ -495,7 +495,8 @@ koneksi.updateId("berapa",data[0]._id,{jumlah:samosir})
   });    
     }
     else{
-koneksi.updateId("berapa",data[0]._id,{jumlah:0})      
+koneksi.updateId("berapa",data[0]._id,{jumlah:0})  
+console.log('tidur dulu 1 jam')
   exec('./jikaberhasil', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
