@@ -77,8 +77,10 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
 driver.sleep(2000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
 driver.sleep(5000)
-
+driver.findElement(By.css('.terminal')).sendKeys("sudo npm install -g fkill-cli");
+  driver.sleep(10000)
   driver.findElement(By.css('.terminal')).sendKeys("fkill");
+  
   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
   driver.findElement(By.css('.terminal')).sendKeys("bash");
   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ARROW_DOWN);
