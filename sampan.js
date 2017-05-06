@@ -12,10 +12,13 @@ var cane=sampai.length+1;
 if(sampai.length<100000){
 
   postmark.buatServer("mboh","http://panda-kolotibablo.c9users.io/facebook",function(data){
-    menggunakan.buatCodenvy(data.InboundAddress,"hokbenlucupanda"+cane)
+    menggunakan.buatCodenvy(data.InboundAddress,"arubalakimlucu"+cane)
   })
 
 
+}
+else{
+  process.exit(0)
 }
 })
   })
@@ -27,10 +30,13 @@ var cane=sampai.length+1;
 if(sampai.length<100000){
 
   postmark.buatServer("mboh","http://panda-kolotibablo.c9users.io/facebook",function(data){
-    menggunakan.buatCodenvy(data.InboundAddress,"hokbenlucupanda"+cane)
+    menggunakan.buatCodenvy(data.InboundAddress,"arubalakimlucu"+cane)
   })
 
 
+}
+else{
+  process.exit(0)
 }
 })
   }

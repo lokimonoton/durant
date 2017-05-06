@@ -199,8 +199,20 @@ koneksi.cari("codenvy",{username:username},function(lapisan){
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit().then(function(){
-    console.log("memulai pembuatan c9")
+    koneksi.cari("berapa",{},data=>{
+      if(data[0].jumlah<3){
+      var samosir=  data[0].jumlah+1
+      koneksi.updateId("berapa",data[0]._id,{jumlah:samosir})
+      buatC9(username)
+        
+      }
+      else{
+        koneksi.updateId("berapa",data[0]._id,{jumlah:0})
 buatC9(username)
+      }
+    })
+    console.log("memulai pembuatan c9")
+
   })
 
 
@@ -232,7 +244,18 @@ buatC9(username)
   driver.sleep(5000)
   driver.quit().then(function(){
     console.log("memulai pembuatan c9")
+koneksi.cari("berapa",{},data=>{
+      if(data[0].jumlah<3){
+      var samosir=  data[0].jumlah+1
+      koneksi.updateId("berapa",data[0]._id,{jumlah:samosir})
+      buatC9(username)
+        
+      }
+      else{
+        koneksi.updateId("berapa",data[0]._id,{jumlah:0})
 buatC9(username)
+      }
+    })
   })
 
 
@@ -455,14 +478,29 @@ driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKey
 driver.sleep(10000)
 driver.quit().then(function(){
   console.log("memulai pembuatan lagi")
+  koneksi.cari("berapa",{},data=>{
+    if(data[0].jumlah<3){
   const exec = require('child_process').exec;
-  exec('berubah', (err, stdout, stderr) => {
+  exec('node sampan.js', (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  console.log("buat codenvy lagi")
+  });    
+    }
+    else{
+      const exec = require('child_process').exec;
+  exec('./jikaberhasil', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
       return;
     }
   console.log("buat codenvy lagi")
   });
+    }
+  })
+  
 })
 }
 

@@ -1,13 +1,3 @@
-
-if [ $SUDAH != 3 ];
-then 
-SUDAH=$((SUDAH+=1));
-     echo "memulai pembuatan codenvy nomer $SUDAH";
-     echo $SUDAH;
-     #xvfb-run -a node sampan.js
-else
-SUDAH=0
-echo "tidur 1 jam"
+sudo rm -rf /tmp/* /tmp/.*
 sleep 3600
-#xvfb-run -a node sampan.js
-fi;
+xvfb-run -a node sampan.js

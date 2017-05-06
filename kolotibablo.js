@@ -1,4 +1,5 @@
 var koneksi=require('./koneksi')
-koneksi.cari("codenvy",{},data=>{
-   console.log(data)
+// koneksi.simpan("berapa",{jumlah:0})
+koneksi.cari("berapa",{},data=>{
+  console.log(data)
 })
