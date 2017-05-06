@@ -58,6 +58,7 @@ function masukCodenvy(username){
       .build();
   driver.manage().window().setSize(1000, 1000);
 driver.get('https://www.codenvy.io/');
+driver.sleep(10000)
 driver.findElement(By.css('#username')).sendKeys(username);
 driver.findElement(By.css('input[type="password"]')).sendKeys("plokotoklucu1");
 driver.findElement(By.css('input[type="password"]')).sendKeys(webdriver.Key.ENTER);
