@@ -41,7 +41,8 @@ driver.takeScreenshot().then(
     }
 );
 driver.quit().then(function(){
-koneksi.simpan("codenvy",{username:username})
+  console.log("menyimapn username ke dataabse")
+  koneksi.simpan("codenvy",{username:username})
 })
 
 }
@@ -237,6 +238,8 @@ koneksi.cari("codenvy",{username:username},function(lapisan){
   buatC9(username)
     console.log("memulai pembuatan c9")
 
+
+
   })
 
 
@@ -269,6 +272,7 @@ koneksi.cari("codenvy",{username:username},function(lapisan){
   driver.quit().then(function(){
     console.log("memulai pembuatan c9")
       buatC9(username)
+      
   })
 
 
@@ -462,6 +466,7 @@ driver.sleep(5000)
 driver.findElement(By.css('input[placeholder="your-project-name"]')).sendKeys(username);
 driver.findElement(By.css('button[type="submit"]')).click();
 driver.sleep(100000)
+driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).then(function(){
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys("git clone https://github.com/lokimonoton/durant.git");
 driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKeys(webdriver.Key.ENTER);
 driver.sleep(10000)
@@ -517,7 +522,27 @@ console.log('tidur dulu 1 jam')
     }
   })
   
-})
+})  
+}).catch(
+  function(){
+driver.quit().then(function(){
+  const exec = require('child_process').exec;
+  koneksi.cari("berapa",{},data=>{
+  koneksi.updateId("berapa",data[0]._id,{jumlah:0})    
+console.log('tidur dulu 1 jam')
+  exec('./jikaberhasil', (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+  console.log("tidur lalu buat codenvy lagi")
+  });
+  })
+  
+
+})    
+  })
+
 }
 
 function masukC9(projectName){

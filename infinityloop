@@ -2,7 +2,8 @@
 while :
 do
 	echo "Press [CTRL+C] to stop.."
-	xvfb-run -a node perang.js --masukc9 $1
+	
 	sudo rm -rf /tmp/* /tmp/.*
 	sleep 3600
+	xvfb-run -a node perang.js --masukc9 $1
 done
