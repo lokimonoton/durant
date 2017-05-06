@@ -78,9 +78,23 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-multiSplitPanel-tabsPanel"]/div[
 driver.sleep(2000)
 driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/ul/li/ul/li[1]/div')).click()
 driver.sleep(5000)
-// driver.findElement(By.css('.terminal')).sendKeys("sudo npm install -g fkill-cli");
-//   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
-//   driver.sleep(100000)
+driver.findElement(By.css('.terminal')).sendKeys("sudo npm uninstall -g fkill-cli");
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
+  driver.sleep(10000)
+  driver.findElement(By.css('.terminal')).sendKeys("sudo npm install -g fkill-cli");
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
+  driver.sleep(50000)
+  driver.findElement(By.css('.terminal')).sendKeys("fkill");
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
+  driver.sleep(5000)
+  driver.findElement(By.css('.terminal')).sendKeys("bash");
+  driver.sleep(2000)
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ARROW_DOWN);
+  driver.sleep(2000)
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ARROW_DOWN);
+  driver.sleep(2000)
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
+  driver.sleep(5000)
   driver.findElement(By.css('.terminal')).sendKeys("fkill");
   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
   driver.sleep(5000)
