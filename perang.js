@@ -106,7 +106,17 @@ driver.findElement(By.css('.terminal')).sendKeys("sudo npm uninstall -g fkill-cl
   driver.sleep(2000)
   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
   driver.sleep(5000)
-
+driver.findElement(By.css('.terminal')).sendKeys("fkill");
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
+  driver.sleep(5000)
+  driver.findElement(By.css('.terminal')).sendKeys("bash");
+  driver.sleep(2000)
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ARROW_DOWN);
+  driver.sleep(2000)
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ARROW_DOWN);
+  driver.sleep(2000)
+  driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
+  driver.sleep(5000)
   driver.takeScreenshot().then(
     function(image, err) {
         require('fs').writeFile('out.png', image, 'base64', function(err) {
