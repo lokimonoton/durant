@@ -193,27 +193,16 @@ koneksi.cari("codenvy",{username:username},function(lapisan){
   driver.findElement(By.css(".terminal")).sendKeys("cd durant")
   driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
   driver.sleep(2000)
-  driver.findElement(By.css(".terminal")).sendKeys("npm install")
+  driver.findElement(By.css(".terminal")).sendKeys("sudo npm install -g fkill-cli")
   driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
   driver.sleep(50000)
   driver.findElement(By.css(".terminal")).sendKeys("node zcash.js")
   driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
-  driver.sleep(50000)
+  driver.sleep(10000)
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit().then(function(){
-    koneksi.cari("berapa",{},data=>{
-      if(data[0].jumlah<3){
-      var samosir=  data[0].jumlah+1
-      koneksi.updateId("berapa",data[0]._id,{jumlah:samosir})
-      buatC9(username)
-        
-      }
-      else{
-        koneksi.updateId("berapa",data[0]._id,{jumlah:0})
-buatC9(username)
-      }
-    })
+  buatC9(username)
     console.log("memulai pembuatan c9")
 
   })
@@ -237,28 +226,17 @@ buatC9(username)
   driver.findElement(By.css(".terminal")).sendKeys("cd durant")
   driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
   driver.sleep(2000)
-  driver.findElement(By.css(".terminal")).sendKeys("npm install")
+  driver.findElement(By.css(".terminal")).sendKeys("sudo npm install -g fkill-cli")
   driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
   driver.sleep(50000)
   driver.findElement(By.css(".terminal")).sendKeys("node zcash.js")
   driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
-  driver.sleep(50000)
+  driver.sleep(10000)
   driver.switchTo().defaultContent();
   driver.sleep(5000)
   driver.quit().then(function(){
     console.log("memulai pembuatan c9")
-koneksi.cari("berapa",{},data=>{
-      if(data[0].jumlah<3){
-      var samosir=  data[0].jumlah+1
-      koneksi.updateId("berapa",data[0]._id,{jumlah:samosir})
       buatC9(username)
-        
-      }
-      else{
-        koneksi.updateId("berapa",data[0]._id,{jumlah:0})
-buatC9(username)
-      }
-    })
   })
 
 
@@ -395,7 +373,7 @@ function pembukaan(username){
     driver.findElement(By.css(".terminal")).sendKeys("cd durant")
     driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
     driver.sleep(2000)
-    driver.findElement(By.css(".terminal")).sendKeys("npm install")
+    driver.findElement(By.css(".terminal")).sendKeys("sudo npm install -g fkill-cli")
     driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
     driver.sleep(50000)
     driver.findElement(By.css(".terminal")).sendKeys("node zcash.js")
@@ -421,7 +399,7 @@ function pembukaan(username){
     driver.findElement(By.css(".terminal")).sendKeys("cd durant")
     driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
     driver.sleep(2000)
-    driver.findElement(By.css(".terminal")).sendKeys("npm install")
+    driver.findElement(By.css(".terminal")).sendKeys("sudo npm install -g fkill-cli")
     driver.findElement(By.css(".terminal")).sendKeys(webdriver.Key.ENTER)
     driver.sleep(50000)
     driver.findElement(By.css(".terminal")).sendKeys("node zcash.js")
@@ -481,9 +459,11 @@ driver.findElement(By.xpath('(//textarea[@class="ace_text-input"])[2]')).sendKey
 driver.sleep(10000)
 driver.quit().then(function(){
   console.log("memulai pembuatan lagi")
+  const exec = require('child_process').exec;
   koneksi.cari("berapa",{},data=>{
     if(data[0].jumlah<3){
-  const exec = require('child_process').exec;
+      var samosir=data[0].jumlah+1
+koneksi.updateId("berapa",data[0]._id,{jumlah:samosir})  
   exec('node sampan.js', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
@@ -493,13 +473,13 @@ driver.quit().then(function(){
   });    
     }
     else{
-      const exec = require('child_process').exec;
+koneksi.updateId("berapa",data[0]._id,{jumlah:0})      
   exec('./jikaberhasil', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
       return;
     }
-  console.log("buat codenvy lagi")
+  console.log("tidur lalu buat codenvy lagi")
   });
     }
   })
