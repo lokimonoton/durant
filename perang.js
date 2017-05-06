@@ -79,7 +79,7 @@ driver.findElement(By.xpath('//*[@id="gwt-debug-consolesPanel"]/div[2]/div/div/u
 driver.sleep(5000)
 driver.findElement(By.css('.terminal')).sendKeys("sudo npm install -g fkill-cli");
   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
-  driver.sleep(10000)
+  driver.sleep(50000)
   driver.findElement(By.css('.terminal')).sendKeys("fkill");
   
   driver.findElement(By.css('.terminal')).sendKeys(webdriver.Key.ENTER);
