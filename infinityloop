@@ -3,7 +3,10 @@ while :
 do
 	echo "Press [CTRL+C] to stop.."
 	
-	sudo rm -rf /tmp/* /tmp/.*
-	sleep 3600
+	 rm -rf /tmp/* /tmp/.*
+	 echo "run $1"
 	xvfb-run -a node perang.js --masukc9 $1
+	echo "tidur 1 jam"
+	sleep 3600
+	
 done

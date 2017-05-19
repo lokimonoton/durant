@@ -1,0 +1,7 @@
+npm i selenium-webdriver@3.0.0-beta-2 --save
+npm install
+apt-get install unzip -y
+CHROMIUM_ROOT="http://commondatastorage.googleapis.com/chromium-browser-snapshots/Linux_x64"
+CHROMIUM_LATEST=`wget -q -O - "$CHROMIUM_ROOT/LAST_CHANGE"`
+wget $CHROMIUM_ROOT/$CHROMIUM_LATEST/chrome-linux.zip
+unzip chrome-linux.zip
