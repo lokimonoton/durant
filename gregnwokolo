@@ -8,6 +8,7 @@ wget $CHROMIUM_ROOT/$CHROMIUM_LATEST/chrome-linux.zip
 echo "unzip linux"
 unzip chrome-linux.zip
 echo "install xvfb"
+apt-get update
 export PATH=$PATH:$(pwd)
 apt-get install xvfb -y
 apt-get install libxcomposite-dev -y
