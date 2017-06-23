@@ -24,8 +24,10 @@ ls.on('exit', function (code) {
 });
 setInterval(function(){
   console.log('kill');
-ls.stdin.pause();
+ls.stderr.pause();
+ls.stdout.pause();
 ls.kill();
+process.exit(0)
 },2000000)
 }
 
