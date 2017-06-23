@@ -1,1 +1,0 @@
-var nheq=require('./nheq')()

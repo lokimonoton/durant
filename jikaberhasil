@@ -1,3 +1,0 @@
-sudo rm -rf /tmp/* /tmp/.*
-sleep 3600
-xvfb-run -a node sampan.js

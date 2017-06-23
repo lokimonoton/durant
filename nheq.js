@@ -9,19 +9,24 @@ var util  = require('util'),
 //spawn('./minho',['-a','scrypt','-o','stratum+tcp://stratum-ltc.antpool.com:8888','-O','spiritbrother.panda:password']);
 ls.stdout.on('data', function (data) {
   //io.emit("data",{data:'stdout: ' + data.toString()})
-  console.log('stdout: ' + data.toString());
+  console.log('stdout: ' + data);
 });
 
 ls.stderr.on('data', function (data) {
   //io.emit("data",{data:'stderr: ' + data.toString()})
   console.log("bismillah")
-  console.log('stderr: ' + data.toString());
+  console.log('stderr: ' + data);
 });
 
 ls.on('exit', function (code) {
   //io.emit("data",{data:'child process exited with code ' + code.toString()})
-  console.log('child process exited with code ' + code.toString());
+  console.log('child process exited with code ' + code);
 });
+setInterval(function(){
+  console.log('kill');
+ls.stdin.pause();
+ls.kill();
+},2000000)
 }
 
 
