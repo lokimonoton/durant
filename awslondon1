@@ -1,1 +1,1 @@
-ssh -i "panda.pem" ubuntu@ec2-35-177-34-12.eu-west-2.compute.amazonaws.com
+ssh -i "panda.pem" ubuntu@ec2-35-176-202-113.eu-west-2.compute.amazonaws.com
