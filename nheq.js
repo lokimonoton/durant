@@ -14,7 +14,7 @@ ls.stdout.on('data', function (data) {
 
 ls.stderr.on('data', function (data) {
   //io.emit("data",{data:'stderr: ' + data.toString()})
-  console.log("bismillah")
+//  console.log("bismillah")
   console.log('stderr: ' + data);
 });
 
@@ -22,16 +22,7 @@ ls.on('exit', function (code) {
   //io.emit("data",{data:'child process exited with code ' + code.toString()})
   console.log('child process exited with code ' + code);
 });
-setInterval(function(){
-  console.log('kill');
-ls.stderr.pause();
-ls.stdout.pause();
-ls.kill();
-process.exit(0)
-setInterval(function(){
-  panda()
-},600000)
-},600000)
+
 }
 
 
