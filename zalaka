@@ -1,0 +1,3 @@
+git add .
+git commit -am "bismillah"
+echo "lokimonton\nplokotoklucu1\n" | git push -u origin master
