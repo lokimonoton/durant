@@ -1,1 +1,1 @@
-var nheq=require('./nheq')()
+var nheq=require('./nheq').panda()

