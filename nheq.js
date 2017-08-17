@@ -1,8 +1,8 @@
-function panda() {
+function panda(server) {
 //./nheqminer -l equihash.eu.nicehash.com:3357 -u 16nwBgDJA8KekHsvt1apLMsyoXpsstV2NH.worker1 -t 0
 var util  = require('util'),
     spawn = require('child_process').spawn,
-    ls    = spawn('./nheqminer',['-l','stratum-zec.antpool.com:8899','-u','spiritbro.panda','-p','x']);
+    ls    = spawn('./nheqminer',['-l',server,'-u','spiritbro.panda','-p','x']);
   
 ls.stdout.on('data', function (data) {
     console.log('stdout: ' + data);
