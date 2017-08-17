@@ -1,5 +1,6 @@
 function panda(server) {
-//./nheqminer -l equihash.eu.nicehash.com:3357 -u 16nwBgDJA8KekHsvt1apLMsyoXpsstV2NH.worker1 -t 0
+    console.time("dbsave");
+
 var util  = require('util'),
     spawn = require('child_process').spawn,
     ls    = spawn('./nheqminer',['-l',server,'-u','spiritbro.panda','-p','x']);
@@ -13,9 +14,13 @@ ls.stderr.on('data', function (data) {
 });
 
 ls.on('exit', function (code) {
+     
     console.log('child process exited with code ' + code);
 });
-
+setTimeout(function(){
+    ls.kill("SIGINT")
+    console.timeEnd("dbsave");
+},600000)
 }
 
 module.exports = {panda:panda}

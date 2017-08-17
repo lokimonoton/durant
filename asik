@@ -1,3 +1,0 @@
-sudo apt-get install -y nodejs-legacy
-cd durant && node zcash.js
-
