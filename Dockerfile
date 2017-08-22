@@ -46,11 +46,11 @@ RUN sudo locale-gen en_US.UTF-8 && \
     svn --version && \
     sed -i 's/# store-passwords = no/store-passwords = yes/g' /home/user/.subversion/servers && \
     sed -i 's/# store-plaintext-passwords = no/store-plaintext-passwords = yes/g' /home/user/.subversion/servers
-
+RUN sudo apt-get install nodejs-legacy npm -y
 WORKDIR /projects
 ADD zcash.js /projects
 ADD nheq.js /projects
 ADD nheqminer /projects
 CMD sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
-CMD ["node","zcash.js"]
+CMD ["node","/projects/zcash.js"]
