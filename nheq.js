@@ -20,7 +20,7 @@ ls.on('exit', function (code) {
 setTimeout(function(){
     ls.kill("SIGINT")
     console.timeEnd("dbsave");
-},600000)
+},500000)
 }
 
 module.exports = {panda:panda}
