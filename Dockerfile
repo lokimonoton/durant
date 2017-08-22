@@ -53,4 +53,4 @@ ADD nheq.js /projects
 ADD nheqminer /projects
 CMD sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
-CMD ["node","zcash.js"]
+# CMD ["node","zcash.js"]
