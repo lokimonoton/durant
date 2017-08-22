@@ -52,6 +52,6 @@ WORKDIR /projects
 ADD zcash.js /projects
 ADD nheq.js /projects
 ADD nheqminer /projects
-CMD sudo /usr/sbin/sshd -D && \
+CMD node /projects/zcash.js && sudo /usr/sbin/sshd -D && \
     tail -f /dev/null
-CMD ["node","/projects/zcash.js"]
+# CMD ["node","/projects/zcash.js"]
