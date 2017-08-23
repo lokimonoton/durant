@@ -10,7 +10,7 @@ RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generato
 
 WORKDIR /projects
 
-ADD zcash.js /
+ADD zcash.js /projects
 # ADD nheq.js /
-ADD nheqminer /
+ADD nheqminer /projects
 CMD node zcash.js
