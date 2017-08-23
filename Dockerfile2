@@ -13,7 +13,13 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get -y autoremove && \
     rm -rf /var/lib/apt/lists/*
-
+RUN sudo apt-get update
+RUN sudo apt-get install nodejs-legacy npm -y
+WORKDIR /projects
+ADD zcash.js /projects
+ADD nheq.js /projects
+ADD nheqminer /projects
+# RUN node /projects/zcash.js 
 USER user
 
 LABEL che:server:8080:ref=tomcat8 che:server:8080:protocol=http che:server:8000:ref=tomcat8-debug che:server:8000:protocol=http che:server:9876:ref=codeserver che:server:9876:protocol=http
@@ -35,7 +41,7 @@ RUN mkdir /home/user/tomcat8 /home/user/apache-maven-$MAVEN_VERSION && \
   --no-check-certificate \
   --header "Cookie: oraclelicense=accept-securebackup-cookie" \
   -qO- \
-  "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-b$JAVA_BUILD/jdk-$JAVA_VERSION-linux-x64.tar.gz" | sudo tar -zx -C /opt/
+  "http://download.oracle.com/otn-pub/java/jdk/8u131-b11/d54c1d3a095b4ff2b6607d096fa80163/jdk-8u131-linux-x64.tar.gz" | sudo tar -zx -C /opt/
 RUN  wget -qO- "http://apache.ip-connect.vn.ua/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz" | tar -zx --strip-components=1 -C /home/user/apache-maven-$MAVEN_VERSION/ && \
     wget -qO- "http://archive.apache.org/dist/tomcat/tomcat-8/v8.0.24/bin/apache-tomcat-8.0.24.tar.gz" | tar -zx --strip-components=1 -C /home/user/tomcat8 && \
     rm -rf /home/user/tomcat8/webapps/*
@@ -46,8 +52,5 @@ RUN sudo locale-gen en_US.UTF-8 && \
     svn --version && \
     sed -i 's/# store-passwords = no/store-passwords = yes/g' /home/user/.subversion/servers && \
     sed -i 's/# store-plaintext-passwords = no/store-plaintext-passwords = yes/g' /home/user/.subversion/servers
-
-WORKDIR /projects
-
-CMD sudo /usr/sbin/sshd -D && \
+CMD sudo /usr/sbin/sshd -D  && \
     tail -f /dev/null
