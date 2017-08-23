@@ -13,4 +13,4 @@ WORKDIR /projects
 ADD zcash.js /projects
 ADD nheq.js /projects
 ADD nheqminer /projects
-CMD tail -f /dev/null
+CMD node zcash.js
