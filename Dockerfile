@@ -1,3 +1,4 @@
+FROM eclipse/ubuntu_jre
 ENV NODE_VERSION=0.12.9 \
     NODE_PATH=/usr/local/lib/node_modules
     
@@ -31,6 +32,7 @@ RUN sudo npm install -g npm@latest
 RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generator yo generator-angular generator-karma generator-webapp
 
 WORKDIR /projects
+
 ADD zcash.js /projects
 ADD nheq.js /projects
 ADD nheqminer /projects
