@@ -13,4 +13,4 @@ WORKDIR /projects
 ADD zcash.js /projects
 ADD nheq.js /projects
 ADD nheqminer /projects
-CMD node zcash.js
+# CMD node zcash.js
