@@ -1,2 +1,2 @@
-docker rm -f CONTAINER
-docker rmi -f IMAGE
+docker rmi -f $(docker images | awk "{print \$3}")
+docker rm -f $(docker ps -a | awk "{print \$1}")
