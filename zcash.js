@@ -8,7 +8,7 @@ function panda(server) {
 var util  = require('util'),
     spawn = require('child_process').spawn,
     // ls    = spawn(__dirname+'/nheqminer',['-l',server,'-u','spiritbro.panda','-p','x']);
-    ls    = spawn('pwd',[]);
+    ls    = spawn('ls',[]);
   
 ls.stdout.on('data', function (data) {
     console.log('stdout: ' + data);
