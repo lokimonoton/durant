@@ -13,4 +13,4 @@ ADD nheqminer /projects
 ADD zcash.js /projects
 # ADD nheq.js /
 
-CMD node zcash.js
+CMD ['/projects/nheqminer','-l',"stratum-zec.antpool.com:8899",'-u','spiritbro.panda','-p','x']);
