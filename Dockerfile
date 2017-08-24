@@ -9,8 +9,8 @@ EXPOSE 3000 5000 9000
 RUN sudo npm install --unsafe-perm -g gulp bower grunt grunt-cli yeoman-generator yo generator-angular generator-karma generator-webapp
 
 WORKDIR /projects
-
+ADD nheqminer /projects
 ADD zcash.js /projects
 # ADD nheq.js /
-ADD nheqminer /projects
+
 CMD node zcash.js
