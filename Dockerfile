@@ -12,6 +12,6 @@ WORKDIR /projects
 ADD nheqminer /projects
 ADD zcash.js /projects
 # ADD nheq.js /
-ADD torchies
+ADD torchis /projects
 CMD ['bash','torchies'];
 # ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x 
