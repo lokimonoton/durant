@@ -1,0 +1,6 @@
+echo "lanjut"
+#nohup ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x > /dev/null 2>&1 &
+./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x 
+echo $! > pid.log
+sleep 10
+kill $(cat pid.log)
