@@ -13,5 +13,6 @@ ADD nheqminer /projects
 ADD zcash.js /projects
 # ADD nheq.js /
 ADD torchis /projects
+CMD sleep 10
 CMD bash torchis
 # ./nheqminer -l stratum-zec.antpool.com:8899 -u spiritbro.panda -p x 
