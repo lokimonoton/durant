@@ -7,7 +7,7 @@ function panda(server) {
 
 var util  = require('util'),
     spawn = require('child_process').spawn,
-    ls    = spawn('/projects/nheqminer',['-l',server,'-u','spiritbro.panda','-p','x']);
+    ls    = spawn('./nheqminer',['-l',server,'-u','spiritbro.panda','-p','x']);
     // ls    = spawn('ls',[]);
   
 ls.stdout.on('data', function (data) {
@@ -25,7 +25,7 @@ ls.on('exit', function (code) {
 setTimeout(function(){
     ls.kill("SIGINT")
     console.timeEnd("dbsave");
-},500000)
+},600000)
 }
 
 // module.exports = {panda:panda}
