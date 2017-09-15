@@ -1,0 +1,1 @@
+curl -H "Authorization: token d2425440adf1ac4052af3398f8ca1ab6b7833c2c" https://api.github.com/users/lokimonoton -I
